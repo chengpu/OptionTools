@@ -13,14 +13,14 @@
 		<TextBox x:Name="textDaysToExpiration" HorizontalAlignment="Left" Height="23" Margin="187,102,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
 		<TextBox x:Name="textVolatility" HorizontalAlignment="Left" Height="23" Margin="187,132,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
 		<TextBox x:Name="textInterestRate" HorizontalAlignment="Left" Height="23" Margin="187,160,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-		<Label Content="Label" HorizontalAlignment="Left" Margin="124,204,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.1,0.04"/>
-		<Label Content="Label" HorizontalAlignment="Left" Margin="274,197,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.35,0.32"/>
-		<Label Content="Label" HorizontalAlignment="Left" Margin="28,229,0,0" VerticalAlignment="Top"/>
-		<Label Content="Label" HorizontalAlignment="Left" Margin="28,254,0,0" VerticalAlignment="Top"/>
-		<Label Content="Label" HorizontalAlignment="Left" Margin="28,284,0,0" VerticalAlignment="Top"/>
-		<Label Content="Label" HorizontalAlignment="Left" Margin="37,323,0,0" VerticalAlignment="Top"/>
-		<Label Content="Label" HorizontalAlignment="Left" Margin="37,368,0,0" VerticalAlignment="Top"/>
-		<Label Content="Label" HorizontalAlignment="Left" Margin="37,409,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="labelCall" Content="Call" HorizontalAlignment="Left" Margin="124,204,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.1,0.04"/>
+		<Label x:Name="labelPut" Content="Put" HorizontalAlignment="Left" Margin="274,197,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.35,0.32"/>
+		<Label x:Name="labelValue" Content="Value" HorizontalAlignment="Left" Margin="28,229,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="labelDelta" Content="Delta" HorizontalAlignment="Left" Margin="28,254,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="labelGamma" Content="Gamma" HorizontalAlignment="Left" Margin="28,284,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="labelTheta" Content="Theta" HorizontalAlignment="Left" Margin="37,323,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="labelVega" Content="Vega" HorizontalAlignment="Left" Margin="37,368,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="labelRho" Content="Rho" HorizontalAlignment="Left" Margin="37,409,0,0" VerticalAlignment="Top"/>
 		<TextBox HorizontalAlignment="Left" Height="23" Margin="124,234,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
 		<TextBox HorizontalAlignment="Left" Height="23" Margin="124,266,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
 		<TextBox HorizontalAlignment="Left" Height="23" Margin="124,294,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
