@@ -8,11 +8,11 @@
 		<Label x:Name="labelDaysToExpiration" Content="Days to Expiration" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
 		<Label x:Name="labelVolatility" Content="Volatility" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top"/>
 		<Label x:Name="labelInterestRate" Content="Interest Rate" HorizontalAlignment="Left" Margin="19,132,0,0" VerticalAlignment="Top"/>
-		<TextBox x:Name="textPrice" HorizontalAlignment="Left" Height="23" Margin="177,22,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="textPrice_TextChanged"/>
-		<TextBox x:Name="textStrike" HorizontalAlignment="Left" Height="23" Margin="177,67,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="textStrike_TextChanged"/>
-		<TextBox x:Name="textDaysToExpiration" HorizontalAlignment="Left" Height="23" Margin="187,102,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="textDaysToExpiration_TextChanged"/>
-		<TextBox x:Name="textVolatility" HorizontalAlignment="Left" Height="23" Margin="187,132,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="textVolatility_TextChanged"/>
-		<TextBox x:Name="textInterestRate" HorizontalAlignment="Left" Height="23" Margin="187,160,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="textInterestRate_TextChanged"/>
+		<TextBox x:Name="textPrice" HorizontalAlignment="Left" Height="23" Margin="177,22,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" TextChanged="textPrice_TextChanged"/>
+		<TextBox x:Name="textStrike" HorizontalAlignment="Left" Height="23" Margin="177,67,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" TextChanged="textStrike_TextChanged"/>
+		<TextBox x:Name="textDaysToExpiration" HorizontalAlignment="Left" Height="23" Margin="187,102,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" TextChanged="textDaysToExpiration_TextChanged"/>
+		<TextBox x:Name="textVolatility" HorizontalAlignment="Left" Height="23" Margin="187,132,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" TextChanged="textVolatility_TextChanged"/>
+		<TextBox x:Name="textInterestRate" HorizontalAlignment="Left" Height="23" Margin="187,160,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" TextChanged="textInterestRate_TextChanged"/>
 		<Label x:Name="labelCall" Content="Call" HorizontalAlignment="Left" Margin="124,204,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.1,0.04"/>
 		<Label x:Name="labelPut" Content="Put" HorizontalAlignment="Left" Margin="274,197,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.35,0.32"/>
 		<Label x:Name="labelValue" Content="Value" HorizontalAlignment="Left" Margin="28,229,0,0" VerticalAlignment="Top"/>
@@ -21,18 +21,18 @@
 		<Label x:Name="labelTheta" Content="Theta" HorizontalAlignment="Left" Margin="37,323,0,0" VerticalAlignment="Top"/>
 		<Label x:Name="labelVega" Content="Vega" HorizontalAlignment="Left" Margin="37,368,0,0" VerticalAlignment="Top"/>
 		<Label x:Name="labelRho" Content="Rho" HorizontalAlignment="Left" Margin="37,409,0,0" VerticalAlignment="Top"/>
-		<TextBox x:Name="textCallValue" HorizontalAlignment="Left" Height="23" Margin="124,234,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-		<TextBox x:Name="textCallDelta" HorizontalAlignment="Left" Height="23" Margin="124,266,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-		<TextBox x:Name="textCallGamma" HorizontalAlignment="Left" Height="23" Margin="124,294,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-		<TextBox x:Name="textCallTheta" HorizontalAlignment="Left" Height="23" Margin="124,323,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-		<TextBox x:Name="textCallVega" HorizontalAlignment="Left" Height="23" Margin="124,368,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-		<TextBox x:Name="textCallRho" HorizontalAlignment="Left" Height="23" Margin="124,409,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-		<TextBox x:Name="textPutValue" HorizontalAlignment="Left" Height="23" Margin="274,234,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-		<TextBox x:Name="textPutDelta" HorizontalAlignment="Left" Height="23" Margin="274,266,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-		<TextBox x:Name="textPutGamma" HorizontalAlignment="Left" Height="23" Margin="274,294,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-		<TextBox x:Name="textPutTheta" HorizontalAlignment="Left" Height="23" Margin="274,323,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-		<TextBox x:Name="textPutVega" HorizontalAlignment="Left" Height="23" Margin="274,368,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-		<TextBox x:Name="textPutRho" HorizontalAlignment="Left" Height="23" Margin="274,409,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="textCallValue" HorizontalAlignment="Left" Height="23" Margin="124,234,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="textCallDelta" HorizontalAlignment="Left" Height="23" Margin="124,266,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="textCallGamma" HorizontalAlignment="Left" Height="23" Margin="124,294,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="textCallTheta" HorizontalAlignment="Left" Height="23" Margin="124,323,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="textCallVega" HorizontalAlignment="Left" Height="23" Margin="124,368,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="textCallRho" HorizontalAlignment="Left" Height="23" Margin="124,409,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="textPutValue" HorizontalAlignment="Left" Height="23" Margin="274,234,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="textPutDelta" HorizontalAlignment="Left" Height="23" Margin="274,266,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="textPutGamma" HorizontalAlignment="Left" Height="23" Margin="274,294,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="textPutTheta" HorizontalAlignment="Left" Height="23" Margin="274,323,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="textPutVega" HorizontalAlignment="Left" Height="23" Margin="274,368,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="textPutRho" HorizontalAlignment="Left" Height="23" Margin="274,409,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
 
 	</Grid>
 </Window>
