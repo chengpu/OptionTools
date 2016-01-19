@@ -8,11 +8,11 @@
 		<Label x:Name="labelDaysToExpiration" Content="Days to Expiration" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
 		<Label x:Name="labelVolatility" Content="Volatility" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top"/>
 		<Label x:Name="labelInterestRate" Content="Interest Rate" HorizontalAlignment="Left" Margin="19,132,0,0" VerticalAlignment="Top"/>
-		<TextBox x:Name="textPrice" HorizontalAlignment="Left" Height="23" Margin="177,22,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-		<TextBox x:Name="textStrike" HorizontalAlignment="Left" Height="23" Margin="177,67,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-		<TextBox x:Name="textDaysToExpiration" HorizontalAlignment="Left" Height="23" Margin="187,102,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-		<TextBox x:Name="textVolatility" HorizontalAlignment="Left" Height="23" Margin="187,132,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-		<TextBox x:Name="textInterestRate" HorizontalAlignment="Left" Height="23" Margin="187,160,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="textPrice" HorizontalAlignment="Left" Height="23" Margin="177,22,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="textPrice_TextChanged"/>
+		<TextBox x:Name="textStrike" HorizontalAlignment="Left" Height="23" Margin="177,67,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="textStrike_TextChanged"/>
+		<TextBox x:Name="textDaysToExpiration" HorizontalAlignment="Left" Height="23" Margin="187,102,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="textDaysToExpiration_TextChanged"/>
+		<TextBox x:Name="textVolatility" HorizontalAlignment="Left" Height="23" Margin="187,132,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="textVolatility_TextChanged"/>
+		<TextBox x:Name="textInterestRate" HorizontalAlignment="Left" Height="23" Margin="187,160,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="textInterestRate_TextChanged"/>
 		<Label x:Name="labelCall" Content="Call" HorizontalAlignment="Left" Margin="124,204,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.1,0.04"/>
 		<Label x:Name="labelPut" Content="Put" HorizontalAlignment="Left" Margin="274,197,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.35,0.32"/>
 		<Label x:Name="labelValue" Content="Value" HorizontalAlignment="Left" Margin="28,229,0,0" VerticalAlignment="Top"/>

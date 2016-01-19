@@ -19,9 +19,44 @@ namespace OptionCalc
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+		private OptionTools.Option option;
 		public MainWindow()
 		{
+			//
+			option = new OptionTools.Option();
+
+			//
 			InitializeComponent();
+		}
+
+		private void textPrice_TextChanged(object sender, TextChangedEventArgs e)
+		{
+			//option.Price = double.Parse(this.textPrice.Text);
+		}
+
+		private void textStrike_TextChanged(object sender, TextChangedEventArgs e)
+		{
+
+		}
+
+		private void textDaysToExpiration_TextChanged(object sender, TextChangedEventArgs e)
+		{
+
+		}
+
+		private void textVolatility_TextChanged(object sender, TextChangedEventArgs e)
+		{
+
+		}
+
+		private void textInterestRate_TextChanged(object sender, TextChangedEventArgs e)
+		{
+
+		}
+
+		private void updateOption()
+		{
+
 		}
 	}
 }
