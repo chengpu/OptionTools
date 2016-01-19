@@ -1,13 +1,18 @@
 ﻿<Window x:Class="OptionCalc.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="485.202" Width="525">
     <Grid>
-		<Label x:Name="labelPrice" Content="Price" HorizontalAlignment="Left" Margin="29,24,0,0" VerticalAlignment="Top" Height="27" Width="73"/>
-		<Label x:Name="labelStrike" Content="Strike" HorizontalAlignment="Left" Margin="29,67,0,0" VerticalAlignment="Top"/>
-		<Label x:Name="labelDaysToExpiration" Content="Days to Expiration" HorizontalAlignment="Left" Margin="29,110,0,0" VerticalAlignment="Top"/>
-		<Label x:Name="labelVolatility" Content="Volatility" HorizontalAlignment="Left" Margin="40,140,0,0" VerticalAlignment="Top"/>
-		<Label x:Name="labelInterestRate" Content="Interest Rate" HorizontalAlignment="Left" Margin="40,179,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="labelPrice" Content="Price" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="27" Width="73"/>
+		<Label x:Name="labelStrike" Content="Strike" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="labelDaysToExpiration" Content="Days to Expiration" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="labelVolatility" Content="Volatility" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="labelInterestRate" Content="Interest Rate" HorizontalAlignment="Left" Margin="19,132,0,0" VerticalAlignment="Top"/>
+		<TextBox x:Name="textPrice" HorizontalAlignment="Left" Height="23" Margin="177,22,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="textStrike" HorizontalAlignment="Left" Height="23" Margin="177,67,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="textDaysToExpiration" HorizontalAlignment="Left" Height="23" Margin="187,102,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="textVolatility" HorizontalAlignment="Left" Height="23" Margin="187,132,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="textInterestRate" HorizontalAlignment="Left" Height="23" Margin="187,160,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
 
 	</Grid>
 </Window>
