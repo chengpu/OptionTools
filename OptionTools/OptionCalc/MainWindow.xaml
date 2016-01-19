@@ -3,6 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
-    </Grid>
+		<Label x:Name="labelPrice" Content="Price" HorizontalAlignment="Left" Margin="29,24,0,0" VerticalAlignment="Top" Height="27" Width="73"/>
+		<Label x:Name="labelStrike" Content="Strike" HorizontalAlignment="Left" Margin="29,67,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="labelDaysToExpiration" Content="Days to Expiration" HorizontalAlignment="Left" Margin="29,110,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="labelVolatility" Content="Volatility" HorizontalAlignment="Left" Margin="40,140,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="labelInterestRate" Content="Interest Rate" HorizontalAlignment="Left" Margin="40,179,0,0" VerticalAlignment="Top"/>
+
+	</Grid>
 </Window>
