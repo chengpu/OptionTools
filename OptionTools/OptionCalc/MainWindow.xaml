@@ -21,18 +21,18 @@
 		<Label x:Name="labelTheta" Content="Theta" HorizontalAlignment="Left" Margin="37,323,0,0" VerticalAlignment="Top"/>
 		<Label x:Name="labelVega" Content="Vega" HorizontalAlignment="Left" Margin="37,368,0,0" VerticalAlignment="Top"/>
 		<Label x:Name="labelRho" Content="Rho" HorizontalAlignment="Left" Margin="37,409,0,0" VerticalAlignment="Top"/>
-		<TextBox HorizontalAlignment="Left" Height="23" Margin="124,234,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-		<TextBox HorizontalAlignment="Left" Height="23" Margin="124,266,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-		<TextBox HorizontalAlignment="Left" Height="23" Margin="124,294,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-		<TextBox HorizontalAlignment="Left" Height="23" Margin="124,323,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-		<TextBox HorizontalAlignment="Left" Height="23" Margin="124,368,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-		<TextBox HorizontalAlignment="Left" Height="23" Margin="124,409,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-		<TextBox HorizontalAlignment="Left" Height="23" Margin="274,234,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-		<TextBox HorizontalAlignment="Left" Height="23" Margin="274,266,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-		<TextBox HorizontalAlignment="Left" Height="23" Margin="274,294,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-		<TextBox HorizontalAlignment="Left" Height="23" Margin="274,323,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-		<TextBox HorizontalAlignment="Left" Height="23" Margin="274,368,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-		<TextBox HorizontalAlignment="Left" Height="23" Margin="274,409,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="textCallValue" HorizontalAlignment="Left" Height="23" Margin="124,234,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="textCallDelta" HorizontalAlignment="Left" Height="23" Margin="124,266,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="textCallGamma" HorizontalAlignment="Left" Height="23" Margin="124,294,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="textCallTheta" HorizontalAlignment="Left" Height="23" Margin="124,323,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="textCallVega" HorizontalAlignment="Left" Height="23" Margin="124,368,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="textCallRho" HorizontalAlignment="Left" Height="23" Margin="124,409,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="textPutValue" HorizontalAlignment="Left" Height="23" Margin="274,234,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="textPutDelta" HorizontalAlignment="Left" Height="23" Margin="274,266,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="textPutGamma" HorizontalAlignment="Left" Height="23" Margin="274,294,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="textPutTheta" HorizontalAlignment="Left" Height="23" Margin="274,323,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="textPutVega" HorizontalAlignment="Left" Height="23" Margin="274,368,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="textPutRho" HorizontalAlignment="Left" Height="23" Margin="274,409,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
 
 	</Grid>
 </Window>
