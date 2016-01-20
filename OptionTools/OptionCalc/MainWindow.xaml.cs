@@ -118,19 +118,19 @@ namespace OptionCalc
 
 		private void optionUpdate()
 		{
-			if (this.textCallValue != null) this.textCallValue.Text = option.CallValue.ToString();
-			if (this.textCallDelta != null) this.textCallDelta.Text = option.CallDelta.ToString();
-			if (this.textCallGamma != null) this.textCallGamma.Text = option.CallGamma.ToString();
-			if (this.textCallTheta != null) this.textCallTheta.Text = option.CallTheta.ToString();
-			if (this.textCallVega != null) this.textCallVega.Text = option.CallVega.ToString();
-			if (this.textCallRho != null) this.textCallRho.Text = option.CallRho.ToString();
+			if (this.textCallValue != null) this.textCallValue.Text = option.CallValue.ToString("F3");
+			if (this.textCallDelta != null) this.textCallDelta.Text = option.CallDelta.ToString("F3");
+			if (this.textCallGamma != null) this.textCallGamma.Text = option.CallGamma.ToString("F3");
+			if (this.textCallTheta != null) this.textCallTheta.Text = option.CallTheta.ToString("F3");
+			if (this.textCallVega != null) this.textCallVega.Text = option.CallVega.ToString("F3");
+			if (this.textCallRho != null) this.textCallRho.Text = option.CallRho.ToString("F3");
 
-			if (this.textPutValue != null) this.textPutValue.Text = option.PutValue.ToString();
-			if (this.textPutDelta != null) this.textPutDelta.Text = option.PutDelta.ToString();
-			if (this.textPutGamma != null) this.textPutGamma.Text = option.PutGamma.ToString();
-			if (this.textPutTheta != null) this.textPutTheta.Text = option.PutTheta.ToString();
-			if (this.textPutVega != null) this.textPutVega.Text = option.PutVega.ToString();
-			if (this.textPutRho != null) this.textPutRho.Text = option.PutRho.ToString();
+			if (this.textPutValue != null) this.textPutValue.Text = option.PutValue.ToString("F3");
+			if (this.textPutDelta != null) this.textPutDelta.Text = option.PutDelta.ToString("F3");
+			if (this.textPutGamma != null) this.textPutGamma.Text = option.PutGamma.ToString("F3");
+			if (this.textPutTheta != null) this.textPutTheta.Text = option.PutTheta.ToString("F3");
+			if (this.textPutVega != null) this.textPutVega.Text = option.PutVega.ToString("F3");
+			if (this.textPutRho != null) this.textPutRho.Text = option.PutRho.ToString("F3");
 		}
 	}
 }
