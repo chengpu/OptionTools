@@ -250,6 +250,7 @@ namespace OptionTools
 			if (!calc) return;
 			calc = false;
 
+			/*
 			//
 			if (strike <= 0) return;
 
@@ -259,28 +260,49 @@ namespace OptionTools
 				// TODO
 				return;
 			}
+			*/
 
 			//
 			double t = daysToExpiration / 365.0;
 			double sqrt_t = Math.Sqrt(t);
 			double d1 = (Math.Log(price / strike) + (interestRate + 0.5 * volatility * volatility) * t) / (volatility * sqrt_t);
 			double d2 = d1 - volatility * sqrt_t;
+			double cdf_d1 = norm.CDF(d1);
+			double cdf_m_d1 = norm.CDF(-d1);
+			double cdf_d2 = norm.CDF(d2);
+			double cdf_m_d2 = norm.CDF(-d2);
+			double pdf_d1 = norm.PDF(d1);
+			double exp_m_r_t = Math.Exp(-interestRate * t);
 
 			//
-			callValue = price * norm.CDF(d1) - strike * Math.Exp(-interestRate * t) * norm.CDF(d2);
-			callDelta = norm.CDF(d1);
-			callGamma = norm.PDF(d1) / (price * volatility * sqrt_t);
-			callTheta = -price * norm.PDF(d1) * volatility / (2 * sqrt_t) - interestRate * strike * Math.Exp(-interestRate * t) * norm.CDF(d2);
-			callVega = price * sqrt_t * norm.PDF(d1);
-			callRho = strike * t * Math.Exp(-interestRate * t) * norm.CDF(d2);
+			callValue = price * cdf_d1 - strike * exp_m_r_t * cdf_d2;
+			callDelta = cdf_d1;
+			callGamma = pdf_d1 / (price * volatility * sqrt_t);
+			callTheta = -price * pdf_d1 * volatility / (2 * sqrt_t) - interestRate * strike * exp_m_r_t * cdf_d2;
+			callVega = price * sqrt_t * pdf_d1;
+			callRho = strike * t * exp_m_r_t * cdf_d2;
 
 			//
-			putValue = strike * Math.Exp(-interestRate * t) * norm.CDF(-d2) - price * norm.CDF(-d1);
-			putDelta = norm.CDF(d1) - 1;
-			//putGamma = 0;
-			putTheta = -price * norm.PDF(d1) * volatility / (2 * sqrt_t) + interestRate * strike * Math.Exp(-interestRate * t) * norm.CDF(-d2);
-			//putVega = 0;
-			putRho = -strike * t * Math.Exp(-interestRate * t) * norm.CDF(-d2);
+			putValue = strike * exp_m_r_t * cdf_m_d2 - price * cdf_m_d1;
+			putDelta = cdf_d1 - 1;
+			putGamma = callGamma;
+			putTheta = -price * pdf_d1 * volatility / (2 * sqrt_t) + interestRate * strike * exp_m_r_t * cdf_m_d2;
+			putVega = callVega;
+			putRho = -strike * t * exp_m_r_t * cdf_m_d2;
+
+			//
+			callValue = Math.Round(callValue, 3);
+			callDelta = Math.Round(callDelta, 3);
+			callGamma = Math.Round(callGamma, 3);
+			callTheta = Math.Round(callTheta, 3);
+			callVega = Math.Round(callVega, 3);
+			callRho = Math.Round(callRho, 3);
+			putValue = Math.Round(putValue, 3);
+			putDelta = Math.Round(putDelta, 3);
+			putGamma = Math.Round(putGamma, 3);
+			putTheta = Math.Round(putTheta, 3);
+			putVega = Math.Round(putVega, 3);
+			putRho = Math.Round(putRho, 3);
 		}
 	}
 }
