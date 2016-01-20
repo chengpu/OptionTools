@@ -29,6 +29,9 @@ namespace OptionTools
 		private double putRho;
 
 		//
+		private NormalDistribution norm;
+
+		//
 		private bool calc;
 
 		public Option()
@@ -55,6 +58,9 @@ namespace OptionTools
 			putTheta = 0;
 			putVega = 0;
 			putRho = 0;
+
+			//
+			norm = new NormalDistribution();
 
 			//
 			calc = false;
@@ -245,7 +251,36 @@ namespace OptionTools
 			calc = false;
 
 			//
-			// TODO
+			if (strike <= 0) return;
+
+			//
+			if (daysToExpiration <= 0)
+			{
+				// TODO
+				return;
+			}
+
+			//
+			double t = daysToExpiration / 365.0;
+			double sqrt_t = Math.Sqrt(t);
+			double d1 = (Math.Log(price / strike) + (interestRate + 0.5 * volatility * volatility) * t) / (volatility * sqrt_t);
+			double d2 = d1 - volatility * sqrt_t;
+
+			//
+			callValue = price * norm.CDF(d1) - strike * Math.Exp(-interestRate * t) * norm.CDF(d2);
+			callDelta = norm.CDF(d1);
+			callGamma = norm.PDF(d1) / (price * volatility * sqrt_t);
+			callTheta = -price * norm.PDF(d1) * volatility / (2 * sqrt_t) - interestRate * strike * Math.Exp(-interestRate * t) * norm.CDF(d2);
+			callVega = price * sqrt_t * norm.PDF(d1);
+			callRho = strike * t * Math.Exp(-interestRate * t) * norm.CDF(d2);
+
+			//
+			putValue = strike * Math.Exp(-interestRate * t) * norm.CDF(-d2) - price * norm.CDF(-d1);
+			putDelta = norm.CDF(d1) - 1;
+			//putGamma = 0;
+			putTheta = -price * norm.PDF(d1) * volatility / (2 * sqrt_t) + interestRate * strike * Math.Exp(-interestRate * t) * norm.CDF(-d2);
+			//putVega = 0;
+			putRho = -strike * t * Math.Exp(-interestRate * t) * norm.CDF(-d2);
 		}
 	}
 }
