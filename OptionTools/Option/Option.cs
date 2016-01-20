@@ -250,18 +250,6 @@ namespace OptionTools
 			if (!calc) return;
 			calc = false;
 
-			/*
-			//
-			if (strike <= 0) return;
-
-			//
-			if (daysToExpiration <= 0)
-			{
-				// TODO
-				return;
-			}
-			*/
-
 			//
 			double t = daysToExpiration / 365.0;
 			double sqrt_t = Math.Sqrt(t);

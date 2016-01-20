@@ -65,8 +65,19 @@ namespace OptionCalc
 			int daysToExpiration = 0;
 			if (int.TryParse(this.textDaysToExpiration.Text, out daysToExpiration))
 			{
-				option.DaysToExpiration = daysToExpiration;
-				optionUpdate();
+				if (daysToExpiration >= 1)
+				{
+					option.DaysToExpiration = daysToExpiration;
+					optionUpdate();
+				}
+				else
+				{
+					option.DaysToExpiration = 1;
+					optionUpdate();
+
+					this.textDaysToExpiration.Text = option.DaysToExpiration.ToString();
+					this.textDaysToExpiration.SelectionStart = this.textDaysToExpiration.Text.Length;
+				}
 			}
 			else
 			{
