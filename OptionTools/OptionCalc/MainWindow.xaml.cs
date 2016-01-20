@@ -132,6 +132,11 @@ namespace OptionCalc
 			if (this.textPutVega != null) this.textPutVega.Text = option.PutVega.ToString("F3");
 			if (this.textPutRho != null) this.textPutRho.Text = option.PutRho.ToString("F3");
 		}
+
+		private void Grid_Initialized(object sender, EventArgs e)
+		{
+			optionUpdate();
+		}
 	}
 }
 
