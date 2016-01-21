@@ -118,19 +118,19 @@ namespace OptionCalc
 
 		private void optionUpdate()
 		{
-			if (this.textCallValue != null) this.textCallValue.Text = option.CallValue.ToString("F3");
-			if (this.textCallDelta != null) this.textCallDelta.Text = option.CallDelta.ToString("F3");
-			if (this.textCallGamma != null) this.textCallGamma.Text = option.CallGamma.ToString("F3");
-			if (this.textCallTheta != null) this.textCallTheta.Text = option.CallTheta.ToString("F3");
-			if (this.textCallVega != null) this.textCallVega.Text = option.CallVega.ToString("F3");
-			if (this.textCallRho != null) this.textCallRho.Text = option.CallRho.ToString("F3");
+			if (this.textCallValue != null) this.textCallValue.Text = Math.Round(option.CallValue, 4).ToString("F4");
+			if (this.textCallDelta != null) this.textCallDelta.Text = Math.Round(option.CallDelta, 4).ToString("F4");
+			if (this.textCallGamma != null) this.textCallGamma.Text = Math.Round(option.CallGamma, 4).ToString("F4");
+			if (this.textCallTheta != null) this.textCallTheta.Text = Math.Round(option.CallTheta, 4).ToString("F4");
+			if (this.textCallVega != null) this.textCallVega.Text = Math.Round(option.CallVega, 4).ToString("F4");
+			if (this.textCallRho != null) this.textCallRho.Text = Math.Round(option.CallRho, 4).ToString("F4");
 
-			if (this.textPutValue != null) this.textPutValue.Text = option.PutValue.ToString("F3");
-			if (this.textPutDelta != null) this.textPutDelta.Text = option.PutDelta.ToString("F3");
-			if (this.textPutGamma != null) this.textPutGamma.Text = option.PutGamma.ToString("F3");
-			if (this.textPutTheta != null) this.textPutTheta.Text = option.PutTheta.ToString("F3");
-			if (this.textPutVega != null) this.textPutVega.Text = option.PutVega.ToString("F3");
-			if (this.textPutRho != null) this.textPutRho.Text = option.PutRho.ToString("F3");
+			if (this.textPutValue != null) this.textPutValue.Text = Math.Round(option.PutValue, 4).ToString("F4");
+			if (this.textPutDelta != null) this.textPutDelta.Text = Math.Round(option.PutDelta, 4).ToString("F4");
+			if (this.textPutGamma != null) this.textPutGamma.Text = Math.Round(option.PutGamma, 4).ToString("F4");
+			if (this.textPutTheta != null) this.textPutTheta.Text = Math.Round(option.PutTheta, 4).ToString("F4");
+			if (this.textPutVega != null) this.textPutVega.Text = Math.Round(option.PutVega, 4).ToString("F4");
+			if (this.textPutRho != null) this.textPutRho.Text = Math.Round(option.PutRho, 4).ToString("F4");
 		}
 
 		private void Grid_Initialized(object sender, EventArgs e)

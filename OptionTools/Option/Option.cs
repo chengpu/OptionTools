@@ -277,20 +277,6 @@ namespace OptionTools
 			putTheta = -price * pdf_d1 * volatility / (2 * sqrt_t) + interestRate * strike * exp_m_r_t * cdf_m_d2;
 			putVega = callVega;
 			putRho = -strike * t * exp_m_r_t * cdf_m_d2;
-
-			//
-			callValue = Math.Round(callValue, 3);
-			callDelta = Math.Round(callDelta, 3);
-			callGamma = Math.Round(callGamma, 3);
-			callTheta = Math.Round(callTheta, 3);
-			callVega = Math.Round(callVega, 3);
-			callRho = Math.Round(callRho, 3);
-			putValue = Math.Round(putValue, 3);
-			putDelta = Math.Round(putDelta, 3);
-			putGamma = Math.Round(putGamma, 3);
-			putTheta = Math.Round(putTheta, 3);
-			putVega = Math.Round(putVega, 3);
-			putRho = Math.Round(putRho, 3);
 		}
 	}
 }
