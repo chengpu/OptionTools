@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
-    </Grid>
+		<DataGrid x:Name="datagridOptions" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" Height="199" Width="476"/>
+
+	</Grid>
 </Window>
