@@ -19,6 +19,29 @@ namespace OptionStrategy
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+		private class Item
+		{
+			private string type;
+
+			public Item(string type)
+			{
+				this.type = type;
+			}
+
+			public string Type
+			{
+				get
+				{
+					return type;
+				}
+			}
+
+
+
+		}
+
+		private List<Item> items;
+
 		public MainWindow()
 		{
 			InitializeComponent();
@@ -26,7 +49,14 @@ namespace OptionStrategy
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
+			//
+			items = new List<Item>();
+			items.Add(new Item("Call"));
+			items.Add(new Item("Call"));
+			items.Add(new Item("Put"));
 
+			//
+			this.datagridOptions.ItemsSource = items;
 		}
 	}
 }
