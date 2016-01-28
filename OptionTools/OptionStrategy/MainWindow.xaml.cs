@@ -208,33 +208,67 @@ namespace OptionStrategy
 			items.Add(new Item("Put", -2, 1.13, 100, 110, 30, 0.2));
 
 			//
+			this.labelPrice.Content = "" + 100.0f;
+			this.sliderPrice.Minimum = 50.0f;
+			this.sliderPrice.Maximum = 150.0f;
+			this.sliderPrice.Value = 100.0f;
+
+			//
+			this.labelDays.Content = "0";
+			this.sliderDays.Minimum = 0;
+			this.sliderDays.Maximum = 30;
+			this.sliderDays.Value = 5;
+
+			//
 			this.datagridOptions.ItemsSource = items;
 		}
 
 		private void sliderPrice_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
 		{
-			if (items == null)
+			//
+			if (this.labelPrice != null)
 			{
-				return;
+				this.labelPrice.Content = "" + e.NewValue;
 			}
-			for (int i = 0; i < items.Count; i++)
+
+			//
+			if (items != null)
 			{
-				items[i].SetUnderlyingPrice(e.NewValue);
+				for (int i = 0; i < items.Count; i++)
+				{
+					items[i].SetUnderlyingPrice(e.NewValue);
+				}
 			}
-			this.datagridOptions.Items.Refresh();
+
+			//
+			if (this.datagridOptions != null)
+			{
+				this.datagridOptions.Items.Refresh();
+			}
 		}
 
 		private void sliderDays_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
 		{
-			if (items == null)
+			//
+			if (this.labelDays != null)
 			{
-				return;
+				this.labelDays.Content = "" + e.NewValue;
 			}
-			for (int i = 0; i < items.Count; i++)
+
+			//
+			if (items != null)
 			{
-				items[i].SetDaysToExpiration((int)e.NewValue);
+				for (int i = 0; i < items.Count; i++)
+				{
+					items[i].SetUnderlyingPrice(e.NewValue);
+				}
 			}
-			this.datagridOptions.Items.Refresh();
+
+			//
+			if (this.datagridOptions != null)
+			{
+				this.datagridOptions.Items.Refresh();
+			}
 		}
 
 		private void sliderVolatility_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
