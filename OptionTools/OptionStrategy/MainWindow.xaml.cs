@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace OptionStrategy
 {
@@ -19,8 +21,20 @@ namespace OptionStrategy
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-		private class Item
+		private class Item : INotifyPropertyChanged
 		{
+			public event PropertyChangedEventHandler PropertyChanged;
+			// OnPropertyChanged will raise the PropertyChanged event passing the
+			// source property that is being updated.
+			private void onPropertyChanged(object sender, string propertyName)
+			{
+				if (this.PropertyChanged != null)
+				{
+					PropertyChanged(sender, new PropertyChangedEventArgs(propertyName));
+				}
+			}
+
+
 			//
 			private string type;
 			private int position;
@@ -77,9 +91,15 @@ namespace OptionStrategy
 				}
 			}
 
-			public void SetVolatility()
+			public void SetVolatility(double volatility)
 			{
+				this.volatility = volatility;
+				if (calc != null)
+				{
+					calc.Volatility = volatility;
 
+					onPropertyChanged(this, "Price");
+				}
 			}
 
 			public string Type
@@ -191,7 +211,9 @@ namespace OptionStrategy
 			}
 		}
 
-		private List<Item> items;
+		private ObservableCollection<Item> items;
+
+		private bool lockVolatility = false;
 
 		public MainWindow()
 		{
@@ -201,7 +223,7 @@ namespace OptionStrategy
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
 			//
-			items = new List<Item>();
+			items = new ObservableCollection<Item>();
 			items.Add(new Item("Underlying", 1, 100, 100, 0, 0, 0));
 			items.Add(new Item("Call", 1, 2.12, 100, 110, 30, 0.2));
 			items.Add(new Item("Call", 1, 2.1, 100, 110, 30, 0.2));
@@ -273,14 +295,36 @@ namespace OptionStrategy
 
 		private void sliderVolatility_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
 		{
+			//
+			if (items != null)
+			{
+				if (lockVolatility)
+				{
+					for (int i = 0; i < items.Count; i++)
+					{
+						items[i].SetVolatility(e.NewValue);
+					}
+				}
+				else
+				{
+					Slider slider = (Slider)sender;
+					Item item = (Item)slider.DataContext;
+					item.SetVolatility(e.NewValue);
+				}
+				
+			}
+
+
 		}
 
 		private void checkBoxLock_Checked(object sender, RoutedEventArgs e)
 		{
+			lockVolatility = true;
 		}
 
 		private void checkBoxLock_Unchecked(object sender, RoutedEventArgs e)
 		{
+			lockVolatility = false;
 		}
 	}
 }
