@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="983" Loaded="Window_Loaded">
 	<Grid>
-		<DataGrid x:Name="datagridOptions" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" Height="199" Width="902" AutoGenerateColumns="False">
+		<DataGrid x:Name="datagridOptions" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" Height="199" Width="902" AutoGenerateColumns="False" IsReadOnly="True">
 			<DataGrid.Columns>
 				<DataGridTextColumn Binding="{Binding Type}" ClipboardContentBinding="{x:Null}" Header="Type"/>
 				<DataGridTextColumn Binding="{Binding Position}" ClipboardContentBinding="{x:Null}" Header="Position"/>
