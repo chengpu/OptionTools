@@ -173,6 +173,18 @@ namespace OptionStrategy
 					else return 0;
 				}
 			}
+
+			public double Volatility
+			{
+				get
+				{
+					return volatility;
+				}
+				set
+				{
+
+				}
+			}
 		}
 
 		private List<Item> items;
@@ -201,7 +213,7 @@ namespace OptionStrategy
 			{
 				return;
 			}
-			for (int i = 0;i < items.Count; i++)
+			for (int i = 0; i < items.Count; i++)
 			{
 				items[i].SetUnderlyingPrice(e.NewValue);
 			}
@@ -219,6 +231,10 @@ namespace OptionStrategy
 				items[i].SetDaysToExpiration((int)e.NewValue);
 			}
 			this.datagridOptions.Items.Refresh();
+		}
+
+		private void sliderVolatility_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+		{
 		}
 	}
 }
