@@ -21,195 +21,7 @@ namespace OptionStrategy
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-		private class Item : INotifyPropertyChanged
-		{
-			public event PropertyChangedEventHandler PropertyChanged;
-			// OnPropertyChanged will raise the PropertyChanged event passing the
-			// source property that is being updated.
-			private void onPropertyChanged(object sender, string propertyName)
-			{
-				if (this.PropertyChanged != null)
-				{
-					PropertyChanged(sender, new PropertyChangedEventArgs(propertyName));
-				}
-			}
 
-
-			//
-			private string type;
-			private int position;
-			private double cost;
-
-			//
-			private double underlyingPrice;
-			private int daysToExpiration;
-			private double volatility;
-
-			//
-			private OptionTools.Option calc;
-
-			public Item(string type, int position, double cost, double underlyingPrice, double strikePrice, int daysToExpiration, double volatility)
-			{
-				//
-				this.type = type;
-				this.position = position;
-				this.cost = cost;
-
-				//
-				this.underlyingPrice = underlyingPrice;
-				this.daysToExpiration = daysToExpiration;
-				this.volatility = volatility;
-
-				//
-				calc = null;
-				if ((type == "Call") || (type == "Put"))
-				{
-					calc = new OptionTools.Option();
-					calc.Price = underlyingPrice;
-					calc.Strike = strikePrice;
-					calc.DaysToExpiration = daysToExpiration;
-					calc.Volatility = volatility;
-					calc.InterestRate = 0.05;
-				}
-			}
-
-			public void SetUnderlyingPrice(double underlyingPrice)
-			{
-				this.underlyingPrice = underlyingPrice;
-				if (calc != null)
-				{
-					calc.Price = underlyingPrice;
-				}
-			}
-
-			public void SetDaysToExpiration(int daysToExpiration)
-			{
-				this.daysToExpiration = daysToExpiration;
-				if (calc != null)
-				{
-					calc.DaysToExpiration = daysToExpiration;
-				}
-			}
-
-			public void SetVolatility(double volatility)
-			{
-				this.volatility = volatility;
-				if (calc != null)
-				{
-					calc.Volatility = volatility;
-
-					onPropertyChanged(this, "Price");
-				}
-			}
-
-			public string Type
-			{
-				get
-				{
-					return type;
-				}
-			}
-
-			public int Position
-			{
-				get
-				{
-					return position;
-				}
-			}
-
-			public double Cost
-			{
-				get
-				{
-					return cost;
-				}
-			}
-
-			public double Price
-			{
-				get
-				{
-					if (type == "Call") return calc.CallValue;
-					else if (type == "Put") return calc.PutValue;
-					else return underlyingPrice;
-				}
-			}
-
-			public double Profit
-			{
-				get
-				{
-					return Position * (Price - Cost);
-				}
-			}
-
-			public double Delta
-			{
-				get
-				{
-					if (type == "Call") return calc.CallDelta;
-					else if (type == "Put") return calc.PutDelta;
-					else return 1;
-				}
-			}
-
-			public double Gamma
-			{
-				get
-				{
-					if (type == "Call") return calc.CallGamma;
-					else if (type == "Put") return calc.PutGamma;
-					return 0;
-				}
-			}
-
-			public double Theta
-			{
-				get
-				{
-					if (type == "Call") return calc.CallTheta;
-					else if (type == "Put") return calc.PutTheta;
-					else return 0;
-				}
-			}
-
-			public double Vega
-			{
-				get
-				{
-					if (type == "Call") return calc.CallVega;
-					else if (type == "Put") return calc.PutVega;
-					else return 0;
-				}
-			}
-
-			public double Rho
-			{
-				get
-				{
-					if (type == "Call") return calc.CallRho;
-					else if (type == "Put") return calc.PutRho;
-					else return 0;
-				}
-			}
-
-			public double Volatility
-			{
-				get
-				{
-					return volatility;
-				}
-			}
-
-			public double VolatilityPercentage
-			{
-				get
-				{
-					return Volatility * 100.0f;
-				}
-			}
-		}
 
 		private ObservableCollection<Item> items;
 
@@ -224,10 +36,20 @@ namespace OptionStrategy
 		{
 			//
 			items = new ObservableCollection<Item>();
-			items.Add(new Item("Underlying", 1, 100, 100, 0, 0, 0));
-			items.Add(new Item("Call", 1, 2.12, 100, 110, 30, 0.2));
-			items.Add(new Item("Call", 1, 2.1, 100, 110, 30, 0.2));
-			items.Add(new Item("Put", -2, 1.13, 100, 110, 30, 0.2));
+			items.Add(new Item("Underlying", 1, 100, 0, 0));
+			items.Add(new Item("Call", 1, 2.12, 30, 110));
+			items.Add(new Item("Call", 1, 2.1, 30, 110));
+			items.Add(new Item("Put", -2, 1.13, 30, 110));
+
+			for (int i = 0; i < items.Count; i++)
+			{
+				items[i].SetUnderlyingPrice(100);
+				items[i].SetDaysPast(0);
+				items[i].SetVolatility(0.25, false);
+			}
+
+			//
+			this.datagridOptions.ItemsSource = items;
 
 			//
 			this.labelPrice.Content = "" + 100.0f;
@@ -240,9 +62,6 @@ namespace OptionStrategy
 			this.sliderDays.Minimum = 0;
 			this.sliderDays.Maximum = 30;
 			this.sliderDays.Value = 5;
-
-			//
-			this.datagridOptions.ItemsSource = items;
 		}
 
 		private void sliderPrice_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -250,7 +69,7 @@ namespace OptionStrategy
 			//
 			if (this.labelPrice != null)
 			{
-				this.labelPrice.Content = "" + e.NewValue;
+				this.labelPrice.Content = string.Format("{0:F4}", e.NewValue);
 			}
 
 			//
@@ -260,12 +79,6 @@ namespace OptionStrategy
 				{
 					items[i].SetUnderlyingPrice(e.NewValue);
 				}
-			}
-
-			//
-			if (this.datagridOptions != null)
-			{
-				this.datagridOptions.Items.Refresh();
 			}
 		}
 
@@ -274,7 +87,7 @@ namespace OptionStrategy
 			//
 			if (this.labelDays != null)
 			{
-				this.labelDays.Content = "" + e.NewValue;
+				this.labelDays.Content = string.Format("{0}", (int)e.NewValue);
 			}
 
 			//
@@ -282,14 +95,8 @@ namespace OptionStrategy
 			{
 				for (int i = 0; i < items.Count; i++)
 				{
-					items[i].SetUnderlyingPrice(e.NewValue);
+					items[i].SetDaysPast((int)e.NewValue);
 				}
-			}
-
-			//
-			if (this.datagridOptions != null)
-			{
-				this.datagridOptions.Items.Refresh();
 			}
 		}
 
@@ -298,23 +105,25 @@ namespace OptionStrategy
 			//
 			if (items != null)
 			{
+				//
+				Slider slider = (Slider)sender;
+				Item item = (Item)slider.DataContext;
+				item.SetVolatility(e.NewValue / 100.0, false);
+
+				//
 				if (lockVolatility)
 				{
+					
 					for (int i = 0; i < items.Count; i++)
 					{
-						items[i].SetVolatility(e.NewValue);
+						Item item2 = items[i];
+						if (item2 != item)
+						{
+							item2.SetVolatility(e.NewValue / 100.0, true);
+						}
 					}
 				}
-				else
-				{
-					Slider slider = (Slider)sender;
-					Item item = (Item)slider.DataContext;
-					item.SetVolatility(e.NewValue);
-				}
-				
 			}
-
-
 		}
 
 		private void checkBoxLock_Checked(object sender, RoutedEventArgs e)

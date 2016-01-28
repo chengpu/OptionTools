@@ -1,7 +1,7 @@
 ﻿<Window x:Class="OptionStrategy.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="OptionStrategy" Height="350" Width="1124" Loaded="Window_Loaded" Background="White">
+        Title="OptionStrategy" Height="350" Width="1324" Loaded="Window_Loaded" Background="White">
 	<Grid Width="Auto" Height="Auto">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto"/>
@@ -18,28 +18,30 @@
 				<DataGridTextColumn Binding="{Binding Cost, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Cost" Width="80"/>
 				<DataGridTextColumn Binding="{Binding Price, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Price" Width="80"/>
 				<DataGridTextColumn Binding="{Binding Profit, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Profit" Width="60"/>
+				<DataGridTextColumn Binding="{Binding Days}" ClipboardContentBinding="{x:Null}" Header="Days" Width="60"/>
+				<DataGridTextColumn Binding="{Binding Strike, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Strike" Width="60"/>
 				<DataGridTextColumn Binding="{Binding Delta, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Delta" Width="60"/>
 				<DataGridTextColumn Binding="{Binding Gamma, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Gamma" Width="60"/>
 				<DataGridTextColumn Binding="{Binding Theta, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Theta" Width="60"/>
 				<DataGridTextColumn Binding="{Binding Vega, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Vega" Width="60"/>
 				<DataGridTextColumn Binding="{Binding Rho, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Rho" Width="60"/>
-				<DataGridTextColumn Binding="{Binding VolatilityPercentage, StringFormat={}{0:F2}%}" ClipboardContentBinding="{x:Null}" Header="Volatility" Width="60"/>
-				<DataGridTemplateColumn ClipboardContentBinding="{x:Null}" Header="Volatility Slider">
+				<DataGridTextColumn Binding="{Binding Volatility, StringFormat={}{0:F2}%}" ClipboardContentBinding="{x:Null}" Header="Volatility" Width="60"/>
+				<DataGridTemplateColumn ClipboardContentBinding="{x:Null}" Header="Volatility Slider" IsReadOnly="True">
 					<DataGridTemplateColumn.HeaderTemplate>
 						<DataTemplate>
-							<CheckBox Content="VolatilityLock" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Checked="checkBoxLock_Checked" Unchecked="checkBoxLock_Unchecked"/>
+							<CheckBox Content="Lock Volatility" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Checked="checkBoxLock_Checked" Unchecked="checkBoxLock_Unchecked"/>
 						</DataTemplate>
 					</DataGridTemplateColumn.HeaderTemplate>
 					<DataGridTemplateColumn.CellTemplate>
 						<DataTemplate>
-							<Slider Value="{Binding VolatilityPercentage, Mode=OneWay}" HorizontalAlignment="Left" Margin="2,2,2,2" VerticalAlignment="Top" Minimum="1" Maximum="150" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" Width="250" ValueChanged="sliderVolatility_ValueChanged"/>
+							<Slider Value="{Binding VolatilitySlider, Mode=OneWay}" Minimum="0" Maximum="150" HorizontalAlignment="Left" Margin="2,2,2,2" VerticalAlignment="Top" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" Width="250" ValueChanged="sliderVolatility_ValueChanged"/>
 						</DataTemplate>
 					</DataGridTemplateColumn.CellTemplate>
 				</DataGridTemplateColumn>
 			</DataGrid.Columns>
 		</DataGrid>
-		<Slider Grid.Row="1" Grid.Column="0" x:Name="sliderPrice" Margin="296,114,144,0" VerticalAlignment="Top" ValueChanged="sliderPrice_ValueChanged" Maximum="200" Minimum="100"/>
-		<Slider Grid.Row="1" Grid.Column="0" x:Name="sliderDays" Margin="296,166,0,0" VerticalAlignment="Top" ValueChanged="sliderDays_ValueChanged" Maximum="30"/>
+		<Slider Grid.Row="1" Grid.Column="0" x:Name="sliderPrice" Margin="199,42,241,0" VerticalAlignment="Top" ValueChanged="sliderPrice_ValueChanged" Maximum="200" Minimum="100"/>
+		<Slider Grid.Row="1" Grid.Column="0" x:Name="sliderDays" Margin="201,82,95,0" VerticalAlignment="Top" ValueChanged="sliderDays_ValueChanged" Maximum="30"/>
 		<Label Content="Total" HorizontalAlignment="Left" Margin="0,5,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
 		<Label x:Name="labelProfit" Content="0" HorizontalAlignment="Left" Margin="340,5,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
 		<Label x:Name="labelDelta" Content="0" HorizontalAlignment="Left" Margin="385,5,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
@@ -47,10 +49,10 @@
 		<Label x:Name="labelTheta" Content="0" HorizontalAlignment="Left" Margin="528,5,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
 		<Label x:Name="labelVega" Content="0" HorizontalAlignment="Left" Margin="596,5,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
 		<Label x:Name="labelRho" Content="0" HorizontalAlignment="Left" Margin="662,5,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
-		<Label Content="Label" HorizontalAlignment="Left" Margin="20,114,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-		<Label x:Name="labelPrice" Content="Label" HorizontalAlignment="Left" Margin="78,122,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-		<Label Content="Label" HorizontalAlignment="Left" Margin="41,184,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-		<Label x:Name="labelDays" Content="Label" HorizontalAlignment="Left" Margin="118,184,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+		<Label Content="UnderlyingPrice" HorizontalAlignment="Left" Margin="15,49,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+		<Label x:Name="labelPrice" Content="Label" HorizontalAlignment="Left" Margin="127,50,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+		<Label Content="DaysPast" HorizontalAlignment="Left" Margin="22,75,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+		<Label x:Name="labelDays" Content="Label" HorizontalAlignment="Left" Margin="118,69,0,0" Grid.Row="1" VerticalAlignment="Top"/>
 
 	</Grid>
 </Window>
