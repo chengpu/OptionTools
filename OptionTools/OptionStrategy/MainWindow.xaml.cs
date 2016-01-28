@@ -274,6 +274,14 @@ namespace OptionStrategy
 		private void sliderVolatility_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
 		{
 		}
+
+		private void checkBoxLock_Checked(object sender, RoutedEventArgs e)
+		{
+		}
+
+		private void checkBoxLock_Unchecked(object sender, RoutedEventArgs e)
+		{
+		}
 	}
 }
 
