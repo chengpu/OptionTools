@@ -2,18 +2,19 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded">
-    <Grid>
-		<DataGrid x:Name="datagridOptions" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" Height="199" Width="476">
+	<Grid>
+		<DataGrid x:Name="datagridOptions" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" Height="199" Width="476" AutoGenerateColumns="False">
 			<DataGrid.Columns>
-				<DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="H1"/>
-				<DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}"/>
-				<DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}"/>
-				<DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}"/>
-				<DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}"/>
-				<DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}"/>
-				<DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}"/>
-				<DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}"/>
-				<DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="H9"/>
+				<DataGridTextColumn Binding="{Binding Type}" ClipboardContentBinding="{x:Null}" Header="Type"/>
+				<DataGridTextColumn Binding="{Binding Position}" ClipboardContentBinding="{x:Null}" Header="Position"/>
+				<DataGridTextColumn Binding="{Binding Cost}" ClipboardContentBinding="{x:Null}" Header="Cost"/>
+				<DataGridTextColumn Binding="{Binding Price}" ClipboardContentBinding="{x:Null}" Header="Price"/>
+				<DataGridTextColumn Binding="{Binding Profit}" ClipboardContentBinding="{x:Null}" Header="Profit"/>
+				<DataGridTextColumn Binding="{Binding Delta}" ClipboardContentBinding="{x:Null}" Header="Delta"/>
+				<DataGridTextColumn Binding="{Binding Gamma}" ClipboardContentBinding="{x:Null}" Header="Gamma"/>
+				<DataGridTextColumn Binding="{Binding Theta}" ClipboardContentBinding="{x:Null}" Header="Theta"/>
+				<DataGridTextColumn Binding="{Binding Vega}" ClipboardContentBinding="{x:Null}" Header="Vega"/>
+				<DataGridTextColumn Binding="{Binding Rho}" ClipboardContentBinding="{x:Null}" Header="Rho"/>
 				<DataGridTemplateColumn ClipboardContentBinding="{x:Null}"/>
 			</DataGrid.Columns>
 		</DataGrid>

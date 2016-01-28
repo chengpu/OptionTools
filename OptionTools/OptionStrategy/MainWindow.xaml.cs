@@ -21,12 +21,20 @@ namespace OptionStrategy
 	{
 		private class Item
 		{
+			//
 			private string type;
 			private int position;
 			private double cost;
+
+			//
+			private double underlyingPrice;
+			private int daysToExpiration;
+			private double volatility;
+
+			//
 			private OptionTools.Option calc;
 
-			public Item(string type, int position, double cost)
+			public Item(string type, int position, double cost, double underlyingPrice, double strikePrice, int daysToExpiration, double volatility)
 			{
 				//
 				this.type = type;
@@ -34,12 +42,21 @@ namespace OptionStrategy
 				this.cost = cost;
 
 				//
-				calc = new OptionTools.Option();
-				calc.Price = 100;
-				calc.Strike = 110;
-				calc.DaysToExpiration = 30;
-				calc.Volatility = 0.25;
-				calc.InterestRate = 0.05;
+				this.underlyingPrice = underlyingPrice;
+				this.daysToExpiration = daysToExpiration;
+				this.volatility = volatility;
+
+				//
+				calc = null;
+				if ((type == "Call") || (type == "Put"))
+				{
+					calc = new OptionTools.Option();
+					calc.Price = underlyingPrice;
+					calc.Strike = strikePrice;
+					calc.DaysToExpiration = daysToExpiration;
+					calc.Volatility = volatility;
+					calc.InterestRate = 0.05;
+				}
 			}
 
 			public void SetUnderlyingPrice()
@@ -86,7 +103,8 @@ namespace OptionStrategy
 				get
 				{
 					if (type == "Call") return calc.CallValue;
-					else return calc.PutValue;
+					else if (type == "Put") return calc.PutValue;
+					else return underlyingPrice;
 				}
 			}
 
@@ -103,7 +121,8 @@ namespace OptionStrategy
 				get
 				{
 					if (type == "Call") return calc.CallDelta;
-					else return calc.PutDelta;
+					else if (type == "Put") return calc.PutDelta;
+					else return 1;
 				}
 			}
 
@@ -112,7 +131,8 @@ namespace OptionStrategy
 				get
 				{
 					if (type == "Call") return calc.CallGamma;
-					else return calc.PutGamma;
+					else if (type == "Put") return calc.PutGamma;
+					return 0;
 				}
 			}
 
@@ -121,7 +141,8 @@ namespace OptionStrategy
 				get
 				{
 					if (type == "Call") return calc.CallTheta;
-					else return calc.PutTheta;
+					else if (type == "Put") return calc.PutTheta;
+					else return 0;
 				}
 			}
 
@@ -130,7 +151,8 @@ namespace OptionStrategy
 				get
 				{
 					if (type == "Call") return calc.CallVega;
-					else return calc.PutVega;
+					else if (type == "Put") return calc.PutVega;
+					else return 0;
 				}
 			}
 
@@ -139,7 +161,8 @@ namespace OptionStrategy
 				get
 				{
 					if (type == "Call") return calc.CallRho;
-					else return calc.PutRho;
+					else if (type == "Put") return calc.PutRho;
+					else return 0;
 				}
 			}
 		}
@@ -155,9 +178,10 @@ namespace OptionStrategy
 		{
 			//
 			items = new List<Item>();
-			items.Add(new Item("Call", 1, 2.12));
-			items.Add(new Item("Call", 1, 2.1));
-			items.Add(new Item("Put", -2, 1.13));
+			items.Add(new Item("Underlying", 1, 100, 100, 0, 0, 0));
+			items.Add(new Item("Call", 1, 2.12, 100, 110, 30, 0.2));
+			items.Add(new Item("Call", 1, 2.1, 100, 110, 30, 0.2));
+			items.Add(new Item("Put", -2, 1.13, 100, 110, 30, 0.2));
 
 			//
 			this.datagridOptions.ItemsSource = items;
