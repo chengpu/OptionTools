@@ -5,20 +5,21 @@
 	<Grid>
 		<DataGrid x:Name="datagridOptions" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" Height="199" Width="902" AutoGenerateColumns="False" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserResizeRows="False" RowHeaderWidth="0">
 			<DataGrid.Columns>
-				<DataGridTextColumn Binding="{Binding Type}" ClipboardContentBinding="{x:Null}" Header="Type"/>
-				<DataGridTextColumn Binding="{Binding Position}" ClipboardContentBinding="{x:Null}" Header="Position"/>
-				<DataGridTextColumn Binding="{Binding Cost, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Cost" HeaderStringFormat=""/>
-				<DataGridTextColumn Binding="{Binding Price, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Price"/>
-				<DataGridTextColumn Binding="{Binding Profit, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Profit"/>
-				<DataGridTextColumn Binding="{Binding Delta, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Delta" HeaderStringFormat=""/>
-				<DataGridTextColumn Binding="{Binding Gamma, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Gamma"/>
-				<DataGridTextColumn Binding="{Binding Theta, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Theta"/>
-				<DataGridTextColumn Binding="{Binding Vega, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Vega"/>
-				<DataGridTextColumn Binding="{Binding Rho, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Rho"/>
-				<DataGridTemplateColumn ClipboardContentBinding="{x:Null}" Header="Volatility">
+				<DataGridTextColumn Binding="{Binding Type}" ClipboardContentBinding="{x:Null}" Header="Type" Width="80"/>
+				<DataGridTextColumn Binding="{Binding Position}" ClipboardContentBinding="{x:Null}" Header="Position" Width="80"/>
+				<DataGridTextColumn Binding="{Binding Cost, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Cost" Width="80"/>
+				<DataGridTextColumn Binding="{Binding Price, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Price" Width="80"/>
+				<DataGridTextColumn Binding="{Binding Profit, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Profit" Width="60"/>
+				<DataGridTextColumn Binding="{Binding Delta, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Delta" Width="60"/>
+				<DataGridTextColumn Binding="{Binding Gamma, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Gamma" Width="60"/>
+				<DataGridTextColumn Binding="{Binding Theta, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Theta" Width="60"/>
+				<DataGridTextColumn Binding="{Binding Vega, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Vega" Width="60"/>
+				<DataGridTextColumn Binding="{Binding Rho, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Rho" Width="60"/>
+				<DataGridTextColumn Binding="{Binding VolatilityPercentage, StringFormat={}{0:F2}%}" ClipboardContentBinding="{x:Null}" Header="Volatility" Width="60"/>
+				<DataGridTemplateColumn ClipboardContentBinding="{x:Null}" Header="Volatility Slider">
 					<DataGridTemplateColumn.CellTemplate>
 						<DataTemplate>
-							<Slider Value="{Binding Volatility}" HorizontalAlignment="Left" Margin="60,10,0,0" VerticalAlignment="Top" Maximum="1000" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" Width="673" ValueChanged="sliderVolatility_ValueChanged"/>
+							<Slider Value="{Binding VolatilityPercentage, Mode=OneWay}" HorizontalAlignment="Left" Margin="60,10,0,0" VerticalAlignment="Top" Maximum="1000" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" Width="673" ValueChanged="sliderVolatility_ValueChanged"/>
 						</DataTemplate>
 					</DataGridTemplateColumn.CellTemplate>
 				</DataGridTemplateColumn>

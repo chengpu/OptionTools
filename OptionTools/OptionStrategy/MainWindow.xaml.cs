@@ -180,10 +180,15 @@ namespace OptionStrategy
 				{
 					return volatility;
 				}
-				set
-				{
+			}
 
+			public double VolatilityPercentage
+			{
+				get
+				{
+					return Volatility * 100.0f;
 				}
+				
 			}
 		}
 
