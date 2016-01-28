@@ -188,7 +188,6 @@ namespace OptionStrategy
 				{
 					return Volatility * 100.0f;
 				}
-				
 			}
 		}
 
