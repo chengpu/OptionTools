@@ -36,7 +36,8 @@ namespace OptionStrategy
 		{
 			//
 			items = new ObservableCollection<Item>();
-			items.Add(new Item("Underlying", 1, 100, 0, 0));
+			items.Add(new Item("Underlying", 2, 110, 0, 0));
+			items.Add(new Item("Underlying", -3, 120, 0, 0));
 			items.Add(new Item("Call", 1, 2.12, 30, 110));
 			items.Add(new Item("Call", 1, 2.1, 30, 110));
 			items.Add(new Item("Put", -2, 1.13, 30, 110));
