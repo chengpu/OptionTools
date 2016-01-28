@@ -27,7 +27,7 @@
 				<DataGridTemplateColumn ClipboardContentBinding="{x:Null}" Header="Volatility Slider">
 					<DataGridTemplateColumn.CellTemplate>
 						<DataTemplate>
-							<Slider Value="{Binding VolatilityPercentage, Mode=OneWay}" HorizontalAlignment="Left" Margin="60,10,0,0" VerticalAlignment="Top" Maximum="1000" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" Width="673" ValueChanged="sliderVolatility_ValueChanged"/>
+							<Slider Value="{Binding VolatilityPercentage, Mode=OneWay}" HorizontalAlignment="Left" Margin="2,2,2,2" VerticalAlignment="Top" Minimum="1" Maximum="150" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" Width="250" ValueChanged="sliderVolatility_ValueChanged"/>
 						</DataTemplate>
 					</DataGridTemplateColumn.CellTemplate>
 				</DataGridTemplateColumn>
