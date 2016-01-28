@@ -7,14 +7,14 @@
 			<DataGrid.Columns>
 				<DataGridTextColumn Binding="{Binding Type}" ClipboardContentBinding="{x:Null}" Header="Type"/>
 				<DataGridTextColumn Binding="{Binding Position}" ClipboardContentBinding="{x:Null}" Header="Position"/>
-				<DataGridTextColumn Binding="{Binding Cost}" ClipboardContentBinding="{x:Null}" Header="Cost"/>
-				<DataGridTextColumn Binding="{Binding Price}" ClipboardContentBinding="{x:Null}" Header="Price"/>
-				<DataGridTextColumn Binding="{Binding Profit}" ClipboardContentBinding="{x:Null}" Header="Profit"/>
-				<DataGridTextColumn Binding="{Binding Delta}" ClipboardContentBinding="{x:Null}" Header="Delta"/>
-				<DataGridTextColumn Binding="{Binding Gamma}" ClipboardContentBinding="{x:Null}" Header="Gamma"/>
-				<DataGridTextColumn Binding="{Binding Theta}" ClipboardContentBinding="{x:Null}" Header="Theta"/>
-				<DataGridTextColumn Binding="{Binding Vega}" ClipboardContentBinding="{x:Null}" Header="Vega"/>
-				<DataGridTextColumn Binding="{Binding Rho}" ClipboardContentBinding="{x:Null}" Header="Rho"/>
+				<DataGridTextColumn Binding="{Binding Cost, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Cost" HeaderStringFormat=""/>
+				<DataGridTextColumn Binding="{Binding Price, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Price"/>
+				<DataGridTextColumn Binding="{Binding Profit, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Profit"/>
+				<DataGridTextColumn Binding="{Binding Delta, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Delta" HeaderStringFormat=""/>
+				<DataGridTextColumn Binding="{Binding Gamma, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Gamma"/>
+				<DataGridTextColumn Binding="{Binding Theta, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Theta"/>
+				<DataGridTextColumn Binding="{Binding Vega, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Vega"/>
+				<DataGridTextColumn Binding="{Binding Rho, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Rho"/>
 				<DataGridTemplateColumn ClipboardContentBinding="{x:Null}"/>
 			</DataGrid.Columns>
 		</DataGrid>
