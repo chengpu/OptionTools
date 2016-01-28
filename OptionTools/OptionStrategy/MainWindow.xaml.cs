@@ -59,14 +59,22 @@ namespace OptionStrategy
 				}
 			}
 
-			public void SetUnderlyingPrice()
+			public void SetUnderlyingPrice(double underlyingPrice)
 			{
-
+				this.underlyingPrice = underlyingPrice;
+				if (calc != null)
+				{
+					calc.Price = underlyingPrice;
+				}
 			}
 
-			public void SetDaysToExpiration()
+			public void SetDaysToExpiration(int daysToExpiration)
 			{
-
+				this.daysToExpiration = daysToExpiration;
+				if (calc != null)
+				{
+					calc.DaysToExpiration = daysToExpiration;
+				}
 			}
 
 			public void SetVolatility()
@@ -185,6 +193,32 @@ namespace OptionStrategy
 
 			//
 			this.datagridOptions.ItemsSource = items;
+		}
+
+		private void sliderPrice_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+		{
+			if (items == null)
+			{
+				return;
+			}
+			for (int i = 0;i < items.Count; i++)
+			{
+				items[i].SetUnderlyingPrice(e.NewValue);
+			}
+			this.datagridOptions.Items.Refresh();
+		}
+
+		private void sliderDays_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+		{
+			if (items == null)
+			{
+				return;
+			}
+			for (int i = 0; i < items.Count; i++)
+			{
+				items[i].SetDaysToExpiration((int)e.NewValue);
+			}
+			this.datagridOptions.Items.Refresh();
 		}
 	}
 }

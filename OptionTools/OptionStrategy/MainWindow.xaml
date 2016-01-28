@@ -18,8 +18,8 @@
 				<DataGridTemplateColumn ClipboardContentBinding="{x:Null}"/>
 			</DataGrid.Columns>
 		</DataGrid>
-		<Slider x:Name="sliderPrice" HorizontalAlignment="Left" Margin="70,10,0,0" VerticalAlignment="Top" Width="399"/>
-		<Slider x:Name="sliderDays" HorizontalAlignment="Left" Margin="70,54,0,0" VerticalAlignment="Top" Width="399"/>
+		<Slider x:Name="sliderPrice" HorizontalAlignment="Left" Margin="70,10,0,0" VerticalAlignment="Top" Width="399" ValueChanged="sliderPrice_ValueChanged" Maximum="200" Minimum="100"/>
+		<Slider x:Name="sliderDays" HorizontalAlignment="Left" Margin="70,54,0,0" VerticalAlignment="Top" Width="399" ValueChanged="sliderDays_ValueChanged" Maximum="30"/>
 
 	</Grid>
 </Window>
