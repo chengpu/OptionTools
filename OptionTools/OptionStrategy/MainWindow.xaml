@@ -18,30 +18,38 @@
 
 		<DataGrid Grid.Row="0" Grid.Column="0" x:Name="datagridOptions" VerticalAlignment="Top" AutoGenerateColumns="False" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserResizeRows="False" RowHeaderWidth="0" AlternatingRowBackground="#FFF0F0F0" RowBackground="White" RowHeight="26">
 			<DataGrid.Resources>
-				<Style x:Key="StyleLeft" TargetType="{x:Type TextBlock}" >
+				<Style x:Key="HeaderStyleLeft" TargetType="{x:Type DataGridColumnHeader}" >
+					<Setter Property="HorizontalContentAlignment" Value="Left"/>
+					<Setter Property="VerticalAlignment" Value="Center"/>
+				</Style>
+				<Style x:Key="HeaderStyleRight" TargetType="{x:Type DataGridColumnHeader}" >
+					<Setter Property="HorizontalContentAlignment" Value="Right"/>
+					<Setter Property="VerticalAlignment" Value="Center"/>
+				</Style>
+				<Style x:Key="ElementStyleLeft" TargetType="{x:Type TextBlock}" >
 					<Setter Property="TextAlignment" Value="Left"/>
 					<Setter Property="VerticalAlignment" Value="Center"/>
 				</Style>
-				<Style x:Key="StyleRight" TargetType="{x:Type TextBlock}" >
+				<Style x:Key="ElementStyleRight" TargetType="{x:Type TextBlock}" >
 					<Setter Property="TextAlignment" Value="Right"/>
 					<Setter Property="VerticalAlignment" Value="Center"/>
 				</Style>
 			</DataGrid.Resources>
 
 			<DataGrid.Columns>
-				<DataGridTextColumn Binding="{Binding Type}" ClipboardContentBinding="{x:Null}" Header="Type" Width="80" ElementStyle="{StaticResource StyleLeft}"/>
-				<DataGridTextColumn Binding="{Binding Position}" ClipboardContentBinding="{x:Null}" Header="Position" Width="80" ElementStyle="{StaticResource StyleRight}"/>
-				<DataGridTextColumn Binding="{Binding Cost, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Cost" Width="80" ElementStyle="{StaticResource StyleRight}"/>
-				<DataGridTextColumn Binding="{Binding Price, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Price" Width="80" ElementStyle="{StaticResource StyleRight}"/>
-				<DataGridTextColumn Binding="{Binding Profit, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Profit" Width="60" ElementStyle="{StaticResource StyleRight}"/>
-				<DataGridTextColumn Binding="{Binding Days}" ClipboardContentBinding="{x:Null}" Header="Days" Width="60" ElementStyle="{StaticResource StyleRight}"/>
-				<DataGridTextColumn Binding="{Binding Strike, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Strike" Width="60" ElementStyle="{StaticResource StyleRight}"/>
-				<DataGridTextColumn Binding="{Binding Delta, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Delta" Width="60" ElementStyle="{StaticResource StyleRight}"/>
-				<DataGridTextColumn Binding="{Binding Gamma, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Gamma" Width="60" ElementStyle="{StaticResource StyleRight}"/>
-				<DataGridTextColumn Binding="{Binding Theta, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Theta" Width="60" ElementStyle="{StaticResource StyleRight}"/>
-				<DataGridTextColumn Binding="{Binding Vega, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Vega" Width="60" ElementStyle="{StaticResource StyleRight}"/>
-				<DataGridTextColumn Binding="{Binding Rho, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Rho" Width="60" ElementStyle="{StaticResource StyleRight}"/>
-				<DataGridTextColumn Binding="{Binding Volatility, StringFormat={}{0:F2}%}" ClipboardContentBinding="{x:Null}" Header="IV" Width="60" ElementStyle="{StaticResource StyleRight}"/>
+				<DataGridTextColumn Binding="{Binding Type}" ClipboardContentBinding="{x:Null}" Header="Type" Width="80" HeaderStyle="{StaticResource HeaderStyleLeft}" ElementStyle="{StaticResource ElementStyleLeft}"/>
+				<DataGridTextColumn Binding="{Binding Position}" ClipboardContentBinding="{x:Null}" Header="Position" Width="60" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
+				<DataGridTextColumn Binding="{Binding Cost, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Cost" Width="70" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
+				<DataGridTextColumn Binding="{Binding Price, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Price" Width="70" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
+				<DataGridTextColumn Binding="{Binding Profit, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Profit" Width="70" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
+				<DataGridTextColumn Binding="{Binding Days}" ClipboardContentBinding="{x:Null}" Header="Days" Width="40" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
+				<DataGridTextColumn Binding="{Binding Strike, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Strike" Width="70" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
+				<DataGridTextColumn Binding="{Binding Delta, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Delta" Width="60" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
+				<DataGridTextColumn Binding="{Binding Gamma, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Gamma" Width="60" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
+				<DataGridTextColumn Binding="{Binding Theta, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Theta" Width="60" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
+				<DataGridTextColumn Binding="{Binding Vega, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Vega" Width="60" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
+				<DataGridTextColumn Binding="{Binding Rho, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Rho" Width="60" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
+				<DataGridTextColumn Binding="{Binding Volatility, StringFormat={}{0:F2}%}" ClipboardContentBinding="{x:Null}" Header="IV" Width="60" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
 				<DataGridTemplateColumn ClipboardContentBinding="{x:Null}" Header="Volatility Slider" IsReadOnly="True">
 					<DataGridTemplateColumn.HeaderTemplate>
 						<DataTemplate>
