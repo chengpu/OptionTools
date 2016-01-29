@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:converter="clr-namespace:OptionStrategy"
         Title="OptionStrategy" Height="350" Width="1324" Loaded="Window_Loaded" Background="White" AllowDrop="True" Drop="Window_Drop">
-	<Window.Resources>        
+	<Window.Resources>
 		<converter:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
 	</Window.Resources>
 
@@ -66,17 +66,18 @@
 		</DataGrid>
 		<Slider Grid.Row="1" Grid.Column="0" x:Name="sliderPrice" Margin="199,42,241,0" VerticalAlignment="Top" ValueChanged="sliderPrice_ValueChanged" Maximum="200" Minimum="100"/>
 		<Slider Grid.Row="1" Grid.Column="0" x:Name="sliderDays" Margin="201,82,95,0" VerticalAlignment="Top" ValueChanged="sliderDays_ValueChanged" Maximum="30"/>
-		<Label Content="Total" HorizontalAlignment="Left" Margin="0,5,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
-		<Label x:Name="labelProfit" Content="0" HorizontalAlignment="Left" Margin="340,5,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
-		<Label x:Name="labelDelta" Content="0" HorizontalAlignment="Left" Margin="523,5,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
-		<Label x:Name="labelGamma" Content="0" HorizontalAlignment="Left" Margin="581,5,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
-		<Label x:Name="labelTheta" Content="0" HorizontalAlignment="Left" Margin="636,5,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
-		<Label x:Name="labelVega" Content="0" HorizontalAlignment="Left" Margin="700,5,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
-		<Label x:Name="labelRho" Content="0" HorizontalAlignment="Left" Margin="763,5,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
+		<Label Content="Total" HorizontalAlignment="Left" Margin="0,11,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
+		<Label x:Name="labelProfit" Content="0" HorizontalAlignment="Left" Margin="283,11,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold" Width="70" HorizontalContentAlignment="Right"/>
+		<Label x:Name="labelDelta" Content="0" HorizontalAlignment="Left" Margin="464,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Right"/>
+		<Label x:Name="labelGamma" Content="0" HorizontalAlignment="Left" Margin="524,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Right"/>
+		<Label x:Name="labelTheta" Content="0" HorizontalAlignment="Left" Margin="584,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Right"/>
+		<Label x:Name="labelVega" Content="0" HorizontalAlignment="Left" Margin="644,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Right"/>
+		<Label x:Name="labelRho" Content="0" HorizontalAlignment="Left" Margin="704,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Right"/>
 		<Label Content="UnderlyingPrice" HorizontalAlignment="Left" Margin="15,49,0,0" Grid.Row="1" VerticalAlignment="Top"/>
 		<Label x:Name="labelPrice" Content="Label" HorizontalAlignment="Left" Margin="127,50,0,0" Grid.Row="1" VerticalAlignment="Top"/>
 		<Label Content="DaysPast" HorizontalAlignment="Left" Margin="22,75,0,0" Grid.Row="1" VerticalAlignment="Top"/>
 		<Label x:Name="labelDays" Content="Label" HorizontalAlignment="Left" Margin="118,69,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+		<Rectangle Fill="#FFF4F4F5" Height="2" Margin="0,32,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top"/>
 
 	</Grid>
 </Window>
