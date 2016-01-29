@@ -16,7 +16,7 @@
 			<ColumnDefinition Width="*"/>
 		</Grid.ColumnDefinitions>
 
-		<DataGrid Grid.Row="0" Grid.Column="0" x:Name="datagridOptions" VerticalAlignment="Top" AutoGenerateColumns="False" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserResizeRows="False" RowHeaderWidth="0">
+		<DataGrid Grid.Row="0" Grid.Column="0" x:Name="datagridOptions" VerticalAlignment="Top" AutoGenerateColumns="False" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserResizeRows="False" RowHeaderWidth="0" AlternatingRowBackground="#FFF0F0F0" RowBackground="White" RowHeight="26">
 			<DataGrid.Columns>
 				<DataGridTextColumn Binding="{Binding Type}" ClipboardContentBinding="{x:Null}" Header="Type" Width="80"/>
 				<DataGridTextColumn Binding="{Binding Position}" ClipboardContentBinding="{x:Null}" Header="Position" Width="80"/>
