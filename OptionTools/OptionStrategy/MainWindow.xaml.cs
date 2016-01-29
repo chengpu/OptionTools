@@ -68,6 +68,10 @@ namespace OptionStrategy
 			UpdateTotal();
 		}
 
+		private void Window_Drop(object sender, DragEventArgs e)
+		{
+		}
+
 		private void UpdateTotal()
 		{
 			double profit = 0;
