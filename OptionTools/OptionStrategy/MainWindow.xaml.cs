@@ -31,40 +31,6 @@ namespace OptionStrategy
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
-			/*
-			//
-			items = new ObservableCollection<Item>();
-			items.Add(new Item("Underlying", 2, 110, 0, 0));
-			items.Add(new Item("Underlying", -3, 120, 0, 0));
-			items.Add(new Item("Call", 1, 2.12, 30, 110));
-			items.Add(new Item("Call", 1, 2.1, 30, 110));
-			items.Add(new Item("Put", -2, 1.13, 30, 110));
-
-			for (int i = 0; i < items.Count; i++)
-			{
-				items[i].SetUnderlyingPrice(100);
-				items[i].SetDaysPast(0);
-				items[i].SetVolatility(0.25, false);
-			}
-
-			//
-			this.datagridOptions.ItemsSource = items;
-
-			//
-			this.labelPrice.Content = "" + 100.0f;
-			this.sliderPrice.Minimum = 50.0f;
-			this.sliderPrice.Maximum = 150.0f;
-			this.sliderPrice.Value = 100.0f;
-
-			//
-			this.labelDays.Content = "0";
-			this.sliderDays.Minimum = 0;
-			this.sliderDays.Maximum = 30;
-			this.sliderDays.Value = 5;
-
-			//
-			UpdateTotal();
-			 * */
 		}
 
 		private void Window_Drop(object sender, DragEventArgs e)
@@ -83,6 +49,10 @@ namespace OptionStrategy
 				//
 				var nodeStrategy = doc.GetElementsByTagName("Strategy")[0];
 				string strategyName = nodeStrategy.Attributes["Name"].Value;
+				double underlyingPrice = double.Parse(nodeStrategy.Attributes["UnderlyingPrice"].Value);
+				double underlyingPriceMin = double.Parse(nodeStrategy.Attributes["UnderlyingPriceMin"].Value);
+				double underlyingPriceMax = double.Parse(nodeStrategy.Attributes["UnderlyingPriceMax"].Value);
+				double volatility = double.Parse(nodeStrategy.Attributes["Volatility"].Value) / 100.0;
 				double volatilityMin = double.Parse(nodeStrategy.Attributes["VolatilityMin"].Value) / 100.0;
 				double volatilityMax = double.Parse(nodeStrategy.Attributes["VolatilityMax"].Value) / 100.0;
 				double interestRate = double.Parse(nodeStrategy.Attributes["InterestRate"].Value) / 100.0;
@@ -102,44 +72,31 @@ namespace OptionStrategy
 					double strike = double.Parse(node.Attributes["Strike"].Value);
 
 					//
-					itemsTemp.Add(new Item(type, count, cost, days, strike, volatilityMin, volatilityMax, interestRate));
+					itemsTemp.Add(new Item(type, count, cost, days, strike, underlyingPrice, volatility, volatilityMin, volatilityMax, interestRate));
 				}
-
-				//
-				for (int i = 0; i < itemsTemp.Count; i++)
-				{
-					itemsTemp[i].SetUnderlyingPrice(100);
-					itemsTemp[i].SetDaysPast(0);
-					itemsTemp[i].SetVolatility(volatilityMin, false);
-				}
-
-				//
 				items = itemsTemp;
 
 				//
 				this.Title = string.Format("OptionStrategy - {0}", strategyName);
 
-				//
 				this.datagridOptions.ItemsSource = items;
 
-				//
-				this.labelPrice.Content = "" + 100.0f;
-				this.sliderPrice.Minimum = 50.0f;
-				this.sliderPrice.Maximum = 150.0f;
-				this.sliderPrice.Value = 100.0f;
+				this.labelPrice.Content = string.Format("{0:F4}", underlyingPrice);
+				this.sliderPrice.Minimum = underlyingPriceMin;
+				this.sliderPrice.Maximum = underlyingPriceMax;
+				this.sliderPrice.Value = underlyingPrice;
 
-				//
 				this.labelDays.Content = "0";
 				this.sliderDays.Minimum = 0;
 				this.sliderDays.Maximum = 30;
-				this.sliderDays.Value = 5;
+				this.sliderDays.Value = 0;
 
 				//
 				UpdateTotal();
 			}
 			catch
 			{
-				MessageBox.Show(string.Format("Read {0} error", file));
+				MessageBox.Show(string.Format("Load {0} error", file));
 				return;
 			}
 		}
@@ -224,18 +181,17 @@ namespace OptionStrategy
 				//
 				Slider slider = (Slider)sender;
 				Item item = (Item)slider.DataContext;
-				item.SetVolatility(e.NewValue / 100.0, false);
+				item.SetVolatilityRate(e.NewValue, false);
 
 				//
 				if (lockVolatility)
 				{
-					
 					for (int i = 0; i < items.Count; i++)
 					{
 						Item item2 = items[i];
 						if (item2 != item)
 						{
-							item2.SetVolatility(e.NewValue / 100.0, true);
+							item2.SetVolatilityRate(e.NewValue, true);
 						}
 					}
 				}

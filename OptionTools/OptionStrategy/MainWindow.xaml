@@ -39,7 +39,7 @@
 					</DataGridTemplateColumn.HeaderTemplate>
 					<DataGridTemplateColumn.CellTemplate>
 						<DataTemplate>
-							<Slider Visibility="{Binding VolatilityEnable, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" Value="{Binding VolatilitySlider, Mode=OneWay}" Minimum="{Binding VolatilityMin, Mode=OneWay}" Maximum="{Binding VolatilityMax, Mode=OneWay}" HorizontalAlignment="Left" Margin="2,2,2,2" VerticalAlignment="Top" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" Width="250" ValueChanged="sliderVolatility_ValueChanged"/>
+							<Slider Visibility="{Binding VolatilityEnable, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" Value="{Binding VolatilityRate, Mode=OneWay}" Minimum="0" Maximum="100" HorizontalAlignment="Left" Margin="2,2,2,2" VerticalAlignment="Top" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" Width="250" ValueChanged="sliderVolatility_ValueChanged"/>
 						</DataTemplate>
 					</DataGridTemplateColumn.CellTemplate>
 				</DataGridTemplateColumn>

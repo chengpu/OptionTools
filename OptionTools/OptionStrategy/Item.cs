@@ -15,20 +15,19 @@ namespace OptionStrategy
 		private double cost;
 		private int daysToExpiration;
 		private double strikePrice;
+		private double underlyingPrice;
+		private double volatility;
 		private double volatilityMin;
 		private double volatilityMax;
 		private double interestRate;
 
 		//
-		private double underlyingPrice;
 		private int daysPast;
-		private double volatility;
-		
 
 		//
 		private OptionTools.Option calc;
 
-		public Item(string type, int position, double cost, int daysToExpiration, double strikePrice, double volatilityMin, double volatilityMax, double interestRate)
+		public Item(string type, int position, double cost, int daysToExpiration, double strikePrice, double underlyingPrice, double volatility, double volatilityMin, double volatilityMax, double interestRate)
 		{
 			//
 			this.type = type;
@@ -36,14 +35,14 @@ namespace OptionStrategy
 			this.cost = cost;
 			this.daysToExpiration = daysToExpiration;
 			this.strikePrice = strikePrice;
+			this.underlyingPrice = underlyingPrice;
+			this.volatility = volatility;
 			this.volatilityMin = volatilityMin;
 			this.volatilityMax = volatilityMax;
 			this.interestRate = interestRate;
 
 			//
-			this.underlyingPrice = 0;
 			this.daysPast = 0;
-			this.volatility = 0;
 
 			//
 			calc = null;
@@ -96,6 +95,11 @@ namespace OptionStrategy
 			//
 			OnPropertyChanged();
 			if (notify) OnPropertyChangedVolatility();
+		}
+
+		public void SetVolatilityRate(double volatilityRate, bool notify)
+		{
+			SetVolatility(volatilityMin + (volatilityMax - volatilityMin) * volatilityRate / 100.0f, notify);
 		}
 
 		public string Type
@@ -243,11 +247,18 @@ namespace OptionStrategy
 			}
 		}
 
-		public double VolatilitySlider
+		public double VolatilityRate
 		{
 			get
 			{
-				return volatility * 100.0f;
+				if ((type == "Call") || (type == "Put"))
+				{
+					return (volatility - volatilityMin) / (volatilityMax - volatilityMin) * 100;
+				}
+				else
+				{
+					return 0;
+				}
 			}
 		}
 
