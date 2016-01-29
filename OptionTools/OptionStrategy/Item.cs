@@ -294,7 +294,7 @@ namespace OptionStrategy
 
 		private void OnPropertyChangedVolatility()
 		{
-			OnPropertyChanged(this, "VolatilitySlider");
+			OnPropertyChanged(this, "VolatilityRate");
 		}
 
 		private void OnPropertyChanged(object sender, string propertyName)
