@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
+using System.Xml;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -21,10 +21,7 @@ namespace OptionStrategy
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-
-
 		private ObservableCollection<Item> items;
-
 		private bool lockVolatility = false;
 
 		public MainWindow()
@@ -34,6 +31,7 @@ namespace OptionStrategy
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
+			/*
 			//
 			items = new ObservableCollection<Item>();
 			items.Add(new Item("Underlying", 2, 110, 0, 0));
@@ -66,10 +64,81 @@ namespace OptionStrategy
 
 			//
 			UpdateTotal();
+			 * */
 		}
 
 		private void Window_Drop(object sender, DragEventArgs e)
 		{
+			//
+			string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+			string file = files[0];
+
+			//
+			try
+			{
+				//
+				XmlDocument doc = new XmlDocument();
+				doc.Load(file);
+
+				//
+				var nodeStrategy = doc.GetElementsByTagName("Strategy")[0];
+				string strategyName = nodeStrategy.Attributes["Name"].Value;
+				double volatilityMin = double.Parse(nodeStrategy.Attributes["VolatilityMin"].Value) / 100.0;
+				double volatilityMax = double.Parse(nodeStrategy.Attributes["VolatilityMax"].Value) / 100.0;
+				double interestRate = double.Parse(nodeStrategy.Attributes["InterestRate"].Value) / 100.0;
+
+				//
+				ObservableCollection<Item> itemsTemp = new ObservableCollection<Item>();
+				foreach (XmlNode node in nodeStrategy.ChildNodes)
+				{
+					//
+					if (node.Name != "Position") continue;
+
+					//
+					string type = node.Attributes["Type"].Value;
+					int count = int.Parse(node.Attributes["Count"].Value);
+					double cost = double.Parse(node.Attributes["Cost"].Value);
+					int days = int.Parse(node.Attributes["Days"].Value);
+					double strike = double.Parse(node.Attributes["Strike"].Value);
+
+					//
+					itemsTemp.Add(new Item(type, count, cost, days, strike));
+				}
+
+				//
+				for (int i = 0; i < itemsTemp.Count; i++)
+				{
+					itemsTemp[i].SetUnderlyingPrice(100);
+					itemsTemp[i].SetDaysPast(0);
+					itemsTemp[i].SetVolatility(volatilityMin, false);
+				}
+
+				//
+				items = itemsTemp;
+
+				//
+				this.datagridOptions.ItemsSource = items;
+
+				//
+				this.labelPrice.Content = "" + 100.0f;
+				this.sliderPrice.Minimum = 50.0f;
+				this.sliderPrice.Maximum = 150.0f;
+				this.sliderPrice.Value = 100.0f;
+
+				//
+				this.labelDays.Content = "0";
+				this.sliderDays.Minimum = 0;
+				this.sliderDays.Maximum = 30;
+				this.sliderDays.Value = 5;
+
+				//
+				UpdateTotal();
+			}
+			catch
+			{
+				MessageBox.Show(string.Format("Read {0} error", file));
+				return;
+			}
 		}
 
 		private void UpdateTotal()
