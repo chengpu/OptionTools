@@ -63,6 +63,39 @@ namespace OptionStrategy
 			this.sliderDays.Minimum = 0;
 			this.sliderDays.Maximum = 30;
 			this.sliderDays.Value = 5;
+
+			//
+			UpdateTotal();
+		}
+
+		private void UpdateTotal()
+		{
+			double profit = 0;
+			double delta = 0;
+			double gamma = 0;
+			double theta = 0;
+			double vega = 0;
+			double rho = 0;
+
+			if (items != null)
+			{
+				for (int i = 0; i < items.Count; i++)
+				{
+					profit += items[i].Profit;
+					delta += items[i].Delta * items[i].Position;
+					gamma += items[i].Gamma * items[i].Position;
+					theta += items[i].Theta * items[i].Position;
+					vega += items[i].Vega * items[i].Position;
+					rho += items[i].Rho * items[i].Position;
+				}
+			}
+
+			if (this.labelProfit != null) this.labelProfit.Content = string.Format("{0:F4}", profit);
+			if (this.labelDelta != null) this.labelDelta.Content = string.Format("{0:F4}", delta);
+			if (this.labelGamma != null) this.labelGamma.Content = string.Format("{0:F4}", gamma);
+			if (this.labelTheta != null) this.labelTheta.Content = string.Format("{0:F4}", theta);
+			if (this.labelVega != null) this.labelVega.Content = string.Format("{0:F4}", vega);
+			if (this.labelRho != null) this.labelRho.Content = string.Format("{0:F4}", rho);
 		}
 
 		private void sliderPrice_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -81,6 +114,9 @@ namespace OptionStrategy
 					items[i].SetUnderlyingPrice(e.NewValue);
 				}
 			}
+
+			//
+			UpdateTotal();
 		}
 
 		private void sliderDays_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -99,6 +135,9 @@ namespace OptionStrategy
 					items[i].SetDaysPast((int)e.NewValue);
 				}
 			}
+
+			//
+			UpdateTotal();
 		}
 
 		private void sliderVolatility_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -125,6 +164,9 @@ namespace OptionStrategy
 					}
 				}
 			}
+
+			//
+			UpdateTotal();
 		}
 
 		private void checkBoxLock_Checked(object sender, RoutedEventArgs e)

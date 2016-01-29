@@ -44,11 +44,11 @@
 		<Slider Grid.Row="1" Grid.Column="0" x:Name="sliderDays" Margin="201,82,95,0" VerticalAlignment="Top" ValueChanged="sliderDays_ValueChanged" Maximum="30"/>
 		<Label Content="Total" HorizontalAlignment="Left" Margin="0,5,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
 		<Label x:Name="labelProfit" Content="0" HorizontalAlignment="Left" Margin="340,5,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
-		<Label x:Name="labelDelta" Content="0" HorizontalAlignment="Left" Margin="385,5,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
-		<Label x:Name="labelGamma" Content="0" HorizontalAlignment="Left" Margin="454,5,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
-		<Label x:Name="labelTheta" Content="0" HorizontalAlignment="Left" Margin="528,5,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
-		<Label x:Name="labelVega" Content="0" HorizontalAlignment="Left" Margin="596,5,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
-		<Label x:Name="labelRho" Content="0" HorizontalAlignment="Left" Margin="662,5,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
+		<Label x:Name="labelDelta" Content="0" HorizontalAlignment="Left" Margin="523,5,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
+		<Label x:Name="labelGamma" Content="0" HorizontalAlignment="Left" Margin="581,5,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
+		<Label x:Name="labelTheta" Content="0" HorizontalAlignment="Left" Margin="636,5,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
+		<Label x:Name="labelVega" Content="0" HorizontalAlignment="Left" Margin="700,5,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
+		<Label x:Name="labelRho" Content="0" HorizontalAlignment="Left" Margin="763,5,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
 		<Label Content="UnderlyingPrice" HorizontalAlignment="Left" Margin="15,49,0,0" Grid.Row="1" VerticalAlignment="Top"/>
 		<Label x:Name="labelPrice" Content="Label" HorizontalAlignment="Left" Margin="127,50,0,0" Grid.Row="1" VerticalAlignment="Top"/>
 		<Label Content="DaysPast" HorizontalAlignment="Left" Margin="22,75,0,0" Grid.Row="1" VerticalAlignment="Top"/>
