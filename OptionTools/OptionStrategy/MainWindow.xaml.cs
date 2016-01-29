@@ -102,7 +102,7 @@ namespace OptionStrategy
 					double strike = double.Parse(node.Attributes["Strike"].Value);
 
 					//
-					itemsTemp.Add(new Item(type, count, cost, days, strike));
+					itemsTemp.Add(new Item(type, count, cost, days, strike, volatilityMin, volatilityMax, interestRate));
 				}
 
 				//
@@ -115,6 +115,9 @@ namespace OptionStrategy
 
 				//
 				items = itemsTemp;
+
+				//
+				this.Title = string.Format("OptionStrategy - {0}", strategyName);
 
 				//
 				this.datagridOptions.ItemsSource = items;
