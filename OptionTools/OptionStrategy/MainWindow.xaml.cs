@@ -58,6 +58,9 @@ namespace OptionStrategy
 				double interestRate = double.Parse(nodeStrategy.Attributes["InterestRate"].Value) / 100.0;
 
 				//
+				int daysMin = 0;
+
+				//
 				ObservableCollection<Item> itemsTemp = new ObservableCollection<Item>();
 				foreach (XmlNode node in nodeStrategy.ChildNodes)
 				{
@@ -73,6 +76,22 @@ namespace OptionStrategy
 
 					//
 					itemsTemp.Add(new Item(type, count, cost, days, strike, underlyingPrice, volatility, volatilityMin, volatilityMax, interestRate));
+
+					//
+					if ((type == "Call") || (type == "Put"))
+					{
+						if (daysMin == 0)
+						{
+							daysMin = days;
+						}
+						else
+						{
+							if (days < daysMin)
+							{
+								daysMin = days;
+							}
+						}
+					}
 				}
 				items = itemsTemp;
 
@@ -86,9 +105,9 @@ namespace OptionStrategy
 				this.sliderPrice.Maximum = underlyingPriceMax;
 				this.sliderPrice.Value = underlyingPrice;
 
-				this.labelDays.Content = "0";
+				this.labelDays.Content = string.Format("{0}", 0);
 				this.sliderDays.Minimum = 0;
-				this.sliderDays.Maximum = 30;
+				this.sliderDays.Maximum = daysMin;
 				this.sliderDays.Value = 0;
 
 				//
