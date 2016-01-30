@@ -3,81 +3,81 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:converter="clr-namespace:OptionStrategy"
         Title="OptionStrategy" Height="350" Width="1324" Loaded="Window_Loaded" Background="White" AllowDrop="True" Drop="Window_Drop">
-	<Window.Resources>
-		<converter:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
-	</Window.Resources>
+    <Window.Resources>
+        <converter:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+    </Window.Resources>
 
-	<Grid Width="Auto" Height="Auto">
-		<Grid.RowDefinitions>
-			<RowDefinition Height="Auto"/>
-			<RowDefinition Height="*"/>
-		</Grid.RowDefinitions>
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="*"/>
-		</Grid.ColumnDefinitions>
+    <Grid Width="Auto" Height="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-		<DataGrid Grid.Row="0" Grid.Column="0" x:Name="datagridOptions" VerticalAlignment="Top" AutoGenerateColumns="False" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserResizeRows="False" RowHeaderWidth="0" AlternatingRowBackground="#FFF0F0F0" RowBackground="White" RowHeight="26">
-			<DataGrid.Resources>
-				<Style x:Key="HeaderStyleLeft" TargetType="{x:Type DataGridColumnHeader}" >
-					<Setter Property="HorizontalContentAlignment" Value="Left"/>
-					<Setter Property="VerticalAlignment" Value="Center"/>
-				</Style>
-				<Style x:Key="HeaderStyleRight" TargetType="{x:Type DataGridColumnHeader}" >
-					<Setter Property="HorizontalContentAlignment" Value="Right"/>
-					<Setter Property="VerticalAlignment" Value="Center"/>
-				</Style>
-				<Style x:Key="ElementStyleLeft" TargetType="{x:Type TextBlock}" >
-					<Setter Property="TextAlignment" Value="Left"/>
-					<Setter Property="VerticalAlignment" Value="Center"/>
-				</Style>
-				<Style x:Key="ElementStyleRight" TargetType="{x:Type TextBlock}" >
-					<Setter Property="TextAlignment" Value="Right"/>
-					<Setter Property="VerticalAlignment" Value="Center"/>
-				</Style>
-			</DataGrid.Resources>
+        <DataGrid Grid.Row="0" Grid.Column="0" x:Name="datagridOptions" VerticalAlignment="Top" AutoGenerateColumns="False" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserResizeRows="False" RowHeaderWidth="0" AlternatingRowBackground="#FFF0F0F0" RowBackground="White" RowHeight="26">
+            <DataGrid.Resources>
+                <Style x:Key="HeaderStyleLeft" TargetType="{x:Type DataGridColumnHeader}" >
+                    <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                </Style>
+                <Style x:Key="HeaderStyleRight" TargetType="{x:Type DataGridColumnHeader}" >
+                    <Setter Property="HorizontalContentAlignment" Value="Right"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                </Style>
+                <Style x:Key="ElementStyleLeft" TargetType="{x:Type TextBlock}" >
+                    <Setter Property="TextAlignment" Value="Left"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                </Style>
+                <Style x:Key="ElementStyleRight" TargetType="{x:Type TextBlock}" >
+                    <Setter Property="TextAlignment" Value="Right"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                </Style>
+            </DataGrid.Resources>
 
-			<DataGrid.Columns>
-				<DataGridTextColumn Binding="{Binding Type}" ClipboardContentBinding="{x:Null}" Header="Type" Width="80" HeaderStyle="{StaticResource HeaderStyleLeft}" ElementStyle="{StaticResource ElementStyleLeft}"/>
-				<DataGridTextColumn Binding="{Binding Position}" ClipboardContentBinding="{x:Null}" Header="Position" Width="60" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
-				<DataGridTextColumn Binding="{Binding Cost, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Cost" Width="70" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
-				<DataGridTextColumn Binding="{Binding Price, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Price" Width="70" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
-				<DataGridTextColumn Binding="{Binding Profit, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Profit" Width="70" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
-				<DataGridTextColumn Binding="{Binding Days}" ClipboardContentBinding="{x:Null}" Header="Days" Width="40" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
-				<DataGridTextColumn Binding="{Binding Strike, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Strike" Width="70" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
-				<DataGridTextColumn Binding="{Binding Delta, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Delta" Width="60" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
-				<DataGridTextColumn Binding="{Binding Gamma, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Gamma" Width="60" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
-				<DataGridTextColumn Binding="{Binding Theta, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Theta" Width="60" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
-				<DataGridTextColumn Binding="{Binding Vega, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Vega" Width="60" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
-				<DataGridTextColumn Binding="{Binding Rho, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Rho" Width="60" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
-				<DataGridTextColumn Binding="{Binding Volatility, StringFormat={}{0:F2}%}" ClipboardContentBinding="{x:Null}" Header="IV" Width="60" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
-				<DataGridTemplateColumn ClipboardContentBinding="{x:Null}" Header="Volatility Slider" IsReadOnly="True">
-					<DataGridTemplateColumn.HeaderTemplate>
-						<DataTemplate>
-							<CheckBox Content="Lock IV" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Checked="checkBoxLock_Checked" Unchecked="checkBoxLock_Unchecked"/>
-						</DataTemplate>
-					</DataGridTemplateColumn.HeaderTemplate>
-					<DataGridTemplateColumn.CellTemplate>
-						<DataTemplate>
-							<Slider Visibility="{Binding VolatilityEnable, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" Value="{Binding VolatilityRate, Mode=OneWay}" Minimum="0" Maximum="100" HorizontalAlignment="Left" Margin="2,2,2,2" VerticalAlignment="Top" Width="250" ValueChanged="sliderVolatility_ValueChanged"/>
-						</DataTemplate>
-					</DataGridTemplateColumn.CellTemplate>
-				</DataGridTemplateColumn>
-			</DataGrid.Columns>
-		</DataGrid>
-		<Slider Grid.Row="1" Grid.Column="0" x:Name="sliderPrice" Margin="199,42,241,0" VerticalAlignment="Top" ValueChanged="sliderPrice_ValueChanged" Maximum="200" Minimum="100"/>
-		<Slider Grid.Row="1" Grid.Column="0" x:Name="sliderDays" Margin="201,82,95,0" VerticalAlignment="Top" ValueChanged="sliderDays_ValueChanged" Maximum="30"/>
-		<Label Content="Total" HorizontalAlignment="Left" Margin="0,11,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
-		<Label x:Name="labelProfit" Content="0" HorizontalAlignment="Left" Margin="283,11,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold" Width="70" HorizontalContentAlignment="Right"/>
-		<Label x:Name="labelDelta" Content="0" HorizontalAlignment="Left" Margin="464,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Right"/>
-		<Label x:Name="labelGamma" Content="0" HorizontalAlignment="Left" Margin="524,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Right"/>
-		<Label x:Name="labelTheta" Content="0" HorizontalAlignment="Left" Margin="584,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Right"/>
-		<Label x:Name="labelVega" Content="0" HorizontalAlignment="Left" Margin="644,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Right"/>
-		<Label x:Name="labelRho" Content="0" HorizontalAlignment="Left" Margin="704,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Right"/>
-		<Label Content="UnderlyingPrice" HorizontalAlignment="Left" Margin="15,49,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-		<Label x:Name="labelPrice" Content="Label" HorizontalAlignment="Left" Margin="127,50,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-		<Label Content="DaysPast" HorizontalAlignment="Left" Margin="22,75,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-		<Label x:Name="labelDays" Content="Label" HorizontalAlignment="Left" Margin="118,69,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-		<Rectangle Fill="#FFF4F4F5" Height="2" Margin="0,32,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top"/>
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Type}" ClipboardContentBinding="{x:Null}" Header="Type" Width="80" HeaderStyle="{StaticResource HeaderStyleLeft}" ElementStyle="{StaticResource ElementStyleLeft}"/>
+                <DataGridTextColumn Binding="{Binding Position}" ClipboardContentBinding="{x:Null}" Header="Position" Width="60" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
+                <DataGridTextColumn Binding="{Binding Cost, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Cost" Width="70" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
+                <DataGridTextColumn Binding="{Binding Price, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Price" Width="70" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
+                <DataGridTextColumn Binding="{Binding Profit, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Profit" Width="70" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
+                <DataGridTextColumn Binding="{Binding Days}" ClipboardContentBinding="{x:Null}" Header="Days" Width="40" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
+                <DataGridTextColumn Binding="{Binding Strike, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Strike" Width="70" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
+                <DataGridTextColumn Binding="{Binding Delta, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Delta" Width="60" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
+                <DataGridTextColumn Binding="{Binding Gamma, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Gamma" Width="60" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
+                <DataGridTextColumn Binding="{Binding Theta, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Theta" Width="60" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
+                <DataGridTextColumn Binding="{Binding Vega, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Vega" Width="60" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
+                <DataGridTextColumn Binding="{Binding Rho, StringFormat=F4}" ClipboardContentBinding="{x:Null}" Header="Rho" Width="60" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
+                <DataGridTextColumn Binding="{Binding Volatility, StringFormat={}{0:F2}%}" ClipboardContentBinding="{x:Null}" Header="IV" Width="60" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
+                <DataGridTemplateColumn ClipboardContentBinding="{x:Null}" Header="Volatility Slider" IsReadOnly="True">
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <CheckBox Content="Lock IV" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Checked="checkBoxLock_Checked" Unchecked="checkBoxLock_Unchecked"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Slider Visibility="{Binding VolatilityEnable, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" Value="{Binding VolatilityRate, Mode=OneWay}" Minimum="0" Maximum="100" HorizontalAlignment="Left" Margin="2,2,2,2" VerticalAlignment="Top" Width="250" ValueChanged="sliderVolatility_ValueChanged"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Slider Grid.Row="1" Grid.Column="0" x:Name="sliderPrice" Margin="193,56,0,0" VerticalAlignment="Top" ValueChanged="sliderPrice_ValueChanged" Maximum="200" Minimum="100" Width="600" HorizontalAlignment="Left"/>
+        <Slider Grid.Row="1" Grid.Column="0" x:Name="sliderDays" Margin="193,82,0,0" VerticalAlignment="Top" ValueChanged="sliderDays_ValueChanged" Maximum="30" Width="600" HorizontalAlignment="Left"/>
+        <Label Content="Total" HorizontalAlignment="Left" Margin="0,11,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="labelProfit" Content="0" HorizontalAlignment="Left" Margin="283,11,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold" Width="70" HorizontalContentAlignment="Right"/>
+        <Label x:Name="labelDelta" Content="0" HorizontalAlignment="Left" Margin="464,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Right"/>
+        <Label x:Name="labelGamma" Content="0" HorizontalAlignment="Left" Margin="524,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Right"/>
+        <Label x:Name="labelTheta" Content="0" HorizontalAlignment="Left" Margin="584,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Right"/>
+        <Label x:Name="labelVega" Content="0" HorizontalAlignment="Left" Margin="644,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Right"/>
+        <Label x:Name="labelRho" Content="0" HorizontalAlignment="Left" Margin="704,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Right"/>
+        <Label Content="UnderlyingPrice:" HorizontalAlignment="Left" Margin="0,53,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Right"/>
+        <Label x:Name="labelPrice" Content="Label" HorizontalAlignment="Left" Margin="105,53,0,0" Grid.Row="1" VerticalAlignment="Top" Width="80" HorizontalContentAlignment="Right"/>
+        <Label Content="DaysPast:" HorizontalAlignment="Left" Margin="0,79,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Right"/>
+        <Label x:Name="labelDays" Content="Label" HorizontalAlignment="Left" Margin="105,79,0,0" Grid.Row="1" VerticalAlignment="Top" Width="80" HorizontalContentAlignment="Right"/>
+        <Rectangle Fill="#FFF4F4F5" Height="2" Margin="0,32,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top"/>
 
-	</Grid>
+    </Grid>
 </Window>
