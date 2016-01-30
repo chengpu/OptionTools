@@ -107,7 +107,7 @@ namespace OptionStrategy
 
 				this.labelDays.Content = string.Format("{0}", 0);
 				this.sliderDays.Minimum = 0;
-				this.sliderDays.Maximum = daysMin;
+				this.sliderDays.Maximum = daysMin - 1;
 				this.sliderDays.Value = 0;
 
 				//
