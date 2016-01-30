@@ -35,7 +35,12 @@
                     <Setter Property="VerticalAlignment" Value="Center"/>
                 </Style>
             </DataGrid.Resources>
-
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                </Style>
+            </DataGrid.CellStyle>
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Type}" ClipboardContentBinding="{x:Null}" Header="Type" Width="80" HeaderStyle="{StaticResource HeaderStyleLeft}" ElementStyle="{StaticResource ElementStyleLeft}"/>
                 <DataGridTextColumn Binding="{Binding Position}" ClipboardContentBinding="{x:Null}" Header="Position" Width="60" HeaderStyle="{StaticResource HeaderStyleRight}" ElementStyle="{StaticResource ElementStyleRight}"/>
@@ -58,7 +63,7 @@
                     </DataGridTemplateColumn.HeaderTemplate>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Slider Visibility="{Binding VolatilityEnable, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" Value="{Binding VolatilityRate, Mode=OneWay}" Minimum="0" Maximum="100" HorizontalAlignment="Left" Margin="2,2,2,2" VerticalAlignment="Top" Width="250" ValueChanged="sliderVolatility_ValueChanged"/>
+                            <Slider Visibility="{Binding VolatilityEnable, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" Value="{Binding VolatilityRate, Mode=OneWay}" Minimum="0" Maximum="100" HorizontalAlignment="Left" Margin="2,3,2,2" VerticalAlignment="Top" Width="250" ValueChanged="sliderVolatility_ValueChanged"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
