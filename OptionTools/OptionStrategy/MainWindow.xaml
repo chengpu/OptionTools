@@ -64,8 +64,8 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Slider Grid.Row="1" Grid.Column="0" x:Name="sliderPrice" Margin="193,56,0,0" VerticalAlignment="Top" ValueChanged="sliderPrice_ValueChanged" Maximum="200" Minimum="100" Width="600" HorizontalAlignment="Left"/>
-        <Slider Grid.Row="1" Grid.Column="0" x:Name="sliderDays" Margin="193,82,0,0" VerticalAlignment="Top" ValueChanged="sliderDays_ValueChanged" Maximum="30" Width="600" HorizontalAlignment="Left"/>
+        <Slider Grid.Row="1" Grid.Column="0" x:Name="sliderPrice" Margin="193,56,0,0" VerticalAlignment="Top" ValueChanged="sliderPrice_ValueChanged" Maximum="100" Width="600" HorizontalAlignment="Left"/>
+        <Slider Grid.Row="1" Grid.Column="0" x:Name="sliderDays" Margin="193,82,0,0" VerticalAlignment="Top" ValueChanged="sliderDays_ValueChanged" Maximum="100" Width="600" HorizontalAlignment="Left"/>
         <Label Content="Total" HorizontalAlignment="Left" Margin="0,11,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="labelProfit" Content="0" HorizontalAlignment="Left" Margin="283,11,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold" Width="70" HorizontalContentAlignment="Right"/>
         <Label x:Name="labelDelta" Content="0" HorizontalAlignment="Left" Margin="464,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Right"/>
@@ -74,9 +74,9 @@
         <Label x:Name="labelVega" Content="0" HorizontalAlignment="Left" Margin="644,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Right"/>
         <Label x:Name="labelRho" Content="0" HorizontalAlignment="Left" Margin="704,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Right"/>
         <Label Content="UnderlyingPrice:" HorizontalAlignment="Left" Margin="0,53,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Right"/>
-        <Label x:Name="labelPrice" Content="Label" HorizontalAlignment="Left" Margin="105,53,0,0" Grid.Row="1" VerticalAlignment="Top" Width="80" HorizontalContentAlignment="Right"/>
+        <Label x:Name="labelPrice" Content="0" HorizontalAlignment="Left" Margin="105,53,0,0" Grid.Row="1" VerticalAlignment="Top" Width="80" HorizontalContentAlignment="Right"/>
         <Label Content="DaysPast:" HorizontalAlignment="Left" Margin="0,79,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Right"/>
-        <Label x:Name="labelDays" Content="Label" HorizontalAlignment="Left" Margin="105,79,0,0" Grid.Row="1" VerticalAlignment="Top" Width="80" HorizontalContentAlignment="Right"/>
+        <Label x:Name="labelDays" Content="0" HorizontalAlignment="Left" Margin="105,79,0,0" Grid.Row="1" VerticalAlignment="Top" Width="80" HorizontalContentAlignment="Right"/>
         <Rectangle Fill="#FFF4F4F5" Height="2" Margin="0,32,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top"/>
 
     </Grid>
