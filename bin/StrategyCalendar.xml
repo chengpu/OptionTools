@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Strategy Name="CoveredCall"
+	UnderlyingPrice="100" UnderlyingPriceMin="50" UnderlyingPriceMax="150"
+	Volatility="30" VolatilityMin="1" VolatilityMax="120"
+	InterestRate="2">
+
+	<Position Type="Call" Count="-1" Cost="3.5101" Days="30" Strike="100"/>
+	<Position Type="Call" Count="1" Cost="6.1721" Days="90" Strike="100"/>
+</Strategy>
